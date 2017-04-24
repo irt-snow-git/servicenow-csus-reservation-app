@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Feature" max_length="40" name="x_casus_reservatio_feature" type="collection">
+        <element label="Confirmation" max_length="40" name="confirmation" type="boolean"/>
+        <element label="Description" max_length="1000" name="description" type="string"/>
+        <element choice="3" default="4" label="Duration" max_length="40" name="duration" type="integer">
+            <choice>
+                <element label="30 Minutes" sequence="100" value="2"/>
+                <element label="1 Hour" sequence="200" value="4"/>
+                <element label="1 Hour 30 Minutes" sequence="300" value="6"/>
+                <element label="2 hours" sequence="400" value="8"/>
+            </choice>
+        </element>
+        <element label="Email template" max_length="32" name="email_template" reference="sysevent_email_template" type="reference"/>
+        <element choice="3" default="7" label="Forecast" max_length="40" name="forecast" type="integer">
+            <choice>
+                <element label="1 Month" value="30"/>
+                <element label="1 Week" value="7"/>
+                <element label="10 Days" value="10"/>
+                <element label="2 Weeks" value="14"/>
+                <element label="3 Weeks" value="21"/>
+                <element label="5 Days" value="5"/>
+            </choice>
+        </element>
+        <element label="Name" max_length="40" name="name" type="string"/>
+        <element default="javascript:getNextObjNumberPadded();" display="true" dynamic_default_value="fdcb83a85f220100a9ad2572f2b4773c" label="Number" max_length="40" name="number" type="string" use_dynamic_default="true"/>
+        <element choice="3" default="subject" label="Type" max_length="40" name="type" type="string">
+            <choice>
+                <element label="Subject" value="subject"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="email_template"/>
+        </index>
+    </element>
+</database>

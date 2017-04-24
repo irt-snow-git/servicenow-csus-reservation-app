@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script/>
+        <description>Reservation Interface</description>
+        <direct>false</direct>
+        <endpoint>x_casus_reservatio_reserve.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<j:jelly xmlns:j="jelly:core" xmlns:g="glide" xmlns:g2="null" xmlns:j2="null" trim="false">
+   <!-- Import AngularJS Library -->
+   <g:requires name="angular.min.jsdbx" />
+   <!-- Import my UI Script - get updated timestamp to invalidate cache if script changes -->
+   <g2:evaluate var="jvar_stamp">var gr = new GlideRecord('sys_ui_script');  
+    gr.get("521245ab0f69b60012e4348ce1050efe");
+    gr.getValue('sys_updated_on');</g2:evaluate>
+   <g:requires name="x_casus_reservatio.app_angular_reserve.jsdbx" params="cache=$[jvar_stamp]" />
+   <!-- The User Interface -->
+	<style>
+.scroll-list {
+  height: 230px;
+  overflow-y: auto;
+}
+.hidden { display:none; }
+
+	</style>
+	
+   <div ng-app="reserveApp" ng-controller="ReserveCtrl">
+      <div class="container full-height" >
+         <div class="row full-height">
+            <div class="col-md-4 full-height">
+               <div class="panel panel-default">
+                  <div class="panel-heading" ng-click="alert('howdy');">
+					Reservation Type
+				</div>
+				<div class="panel-body" >
+					<div class="list-group scroll-list">
+						<div ng-repeat="myfeature in rfeature" class="list-group-item menuSubject" ng-click="setSelected(myfeature.number);" ng-class="{active: myfeature.number === idSelectedVote}">
+						<h4 class="list-group-item-heading">{{myfeature.name}} {{myfeature.number}}</h4>
+						<p class="list-group-item-text">{{myfeature.description}}</p>
+					  </div>					
+				   </div>
+               </div>
+				</div>
+            </div>
+			 
+			 
+			 
+            <div class="col-md-4">
+               <div class="panel panel-default">
+                  <div class="panel-heading">Date</div>
+                  <div class="panel-body" style=" text-align:center;" >
+					
+<div class="list-group scroll-list">
+					  <a href="#" class="list-group-item menuDate">
+						<h4 class="list-group-item-heading">April 1, 2017</h4>
+					  </a>
+   <a href="#" class="list-group-item menuDate">
+						<h4 class="list-group-item-heading">April 2, 2017</h4>
+					  </a>
+	 <a href="#" class="list-group-item menuDate">
+						<h4 class="list-group-item-heading">April 3, 2017</h4>
+					  </a>
+	 <a href="#" class="list-group-item menuDate">
+						<h4 class="list-group-item-heading">April 4, 2017</h4>
+					  </a>
+	 <a href="#" class="list-group-item menuDate">
+						<h4 class="list-group-item-heading">April 5, 2017</h4>
+					  </a>
+	 <a href="#" class="list-group-item menuDate">
+						<h4 class="list-group-item-heading">April 8, 2017</h4>
+					  </a>
+	 <a href="#" class="list-group-item menuDate">
+						<h4 class="list-group-item-heading">April 9, 2017</h4>
+					  </a>
+	 <a href="#" class="list-group-item menuDate">
+						<h4 class="list-group-item-heading">April 10, 2017</h4>
+					  </a>
+	 <a href="#" class="list-group-item menuDate">
+						<h4 class="list-group-item-heading">April 11, 2017</h4>
+					  </a>
+	 <a href="#" class="list-group-item menuDate">
+						<h4 class="list-group-item-heading">April 12, 2017</h4>
+					  </a>
+	 <a href="#" class="list-group-item menuDate">
+						<h4 class="list-group-item-heading">April 15, 2017</h4>
+					  </a>
+				   </div>			 
+			  
+				   </div>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div class="panel panel-default ">
+                  <div class="panel-heading">Time</div>
+                  <div class="panel-body">
+				   
+				   <div class="list-group scroll-list" style=" text-align:center;">
+					  <a href="#" class="list-group-item menuTime">
+						<h4 class="list-group-item-heading">2:00 PM</h4>
+					  </a>
+   <a href="#" class="list-group-item menuTime">
+						<h4 class="list-group-item-heading">2:30 PM</h4>
+					  </a>
+	 <a href="#" class="list-group-item menuTime">
+						<h4 class="list-group-item-heading">3:00 PM</h4>
+					  </a>
+	 <a href="#" class="list-group-item menuTime">
+						<h4 class="list-group-item-heading">3:30 PM</h4>
+					  </a>
+	 <a href="#" class="list-group-item menuTime">
+						<h4 class="list-group-item-heading">4:00 PM</h4>
+					  </a>
+					   </div>
+				   </div>
+               </div>
+            </div>
+         </div>
+		  <div class="row">
+			  <div class="col-md-12">
+				  <div class="panel panel-default menuConfirm">
+                  <div class="panel-heading">Confirmation</div>
+					  <div class="panel-body" >
+					  <p>You are reserving an appoint about X</p>
+					  <p>The appointed date is X X at X:00</p>
+						  <a href="#" class="btn btn-primary pull-right menuConfirm">Make Reservation</a>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+      </div>
+   </div>
+	  <script>
+		  
+/* $j('a.menuSubject').click(function(){
+    $j('a.menuSubject').removeClass("active");
+    $j(this).addClass("active");
+	$j('a.menuDate').removeClass("disabled");
+	$j('a.menuTime').addClass("disabled");
+	$j('a.menuDate').removeClass("active");
+	$j('a.menuTime').removeClass("active");
+	$j('div.menuConfirm').addClass("hidden");
+});
+		  */
+		  
+$j('a.menuDate').click(function(){
+    $j('a.menuDate').removeClass("active");
+    $j(this).addClass("active");
+	$j('a.menuTime').removeClass("disabled");
+	$j('a.menuTime').removeClass("active");
+	$j('div.menuConfirm').addClass("hidden");
+});
+$j('a.menuTime').click(function(){
+    $j('a.menuTime').removeClass("active");
+    $j(this).addClass("active");
+	$j('div.menuConfirm').removeClass("hidden");
+});
+
+$j('a.menuConfirm').click(function(){
+		  alert("you win");
+});
+		  
+	 // setup first run
+$j('a.menuDate').addClass("disabled");
+$j('a.menuTime').addClass("disabled");
+$j('div.menuConfirm').addClass("hidden");
+
+  </script>
+</j:jelly>]]></html>
+        <name>reserve</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>millsm</sys_created_by>
+        <sys_created_on>2017-03-22 20:14:24</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>09a170670f69b60012e4348ce1050e69</sys_id>
+        <sys_mod_count>161</sys_mod_count>
+        <sys_name>reserve</sys_name>
+        <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
+        <sys_update_name>sys_ui_page_09a170670f69b60012e4348ce1050e69</sys_update_name>
+        <sys_updated_by>millsm</sys_updated_by>
+        <sys_updated_on>2017-03-30 05:48:17</sys_updated_on>
+    </sys_ui_page>
+</record_update>

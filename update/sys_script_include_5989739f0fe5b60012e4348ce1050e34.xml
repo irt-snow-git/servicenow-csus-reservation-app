@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_casus_reservatio.ReservationAvailabilitySetup</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>ReservationAvailabilitySetup</name>
+        <script><![CDATA[var ReservationAvailabilitySetup = Class.create();
+ReservationAvailabilitySetup.prototype = {
+    initialize: function() {
+    },
+	resetAvailability: function( resource ) {
+		// step 1 - Remove any existing availability for this resource
+		var gr_reservation = new GlideRecord("x_casus_reservatio_availability");
+		gr_reservation.addQuery("resource" , resource.sys_id );
+		gr_reservation.addNullQuery("reservation");
+		gr_reservation.deleteMultiple();
+
+		
+		// step 1.5 - Collect reservations and create a NOT AVAIL schedule
+		var sched_busy = [];
+		var gr_reservation = new GlideRecord("x_casus_reservatio_availability");
+		gr_reservation.addQuery("resource" , resource.sys_id );
+		gr_reservation.addNotNullQuery("reservation");
+		gr_reservation.query();
+		while( gr_reservation.next() ){
+			// add entry to the busy schedule
+			var startDateTime = new GlideDateTime( gr_reservation.start );
+			var endDateTime = new GlideDateTime( gr_reservation.start );
+			endDateTime.addSeconds( 14 * 60 ); // 15 minute block
+			sched_busy.push( {start: startDateTime , end: endDateTime });
+		}
+		
+		
+		// step 2 - Create new availability records for this resource
+		var i_timeblock_start = new GlideDateTime( gs.hoursAgoStart(0) ); // Get Now for start time
+		var i_timeblock_end = new GlideDateTime(gs.hoursAgoStart(0) ); // Get Now for end time
+		i_timeblock_end.addSeconds( 14 * 60 ); // add span for 15 minute block
+		var i_timeblock_stop = new GlideDateTime(gs.hoursAgoEnd(0) ); // for stopping the while loop
+		i_timeblock_stop.addDaysUTC( resource.feature.forecast * 1 ); // Add the days to span out
+		var i_timeschedule = new GlideSchedule( resource.schedule.sys_id ); // grab the resources schedule
+		
+		
+		// step 2.5 - Loop through durations and add availability
+		var busycheck = "AVAIL";
+		while( i_timeblock_start.compareTo( i_timeblock_stop ) < 1 ) {
+			
+			for( var i = 0 ; i < sched_busy.length ; i++ ) {
+				if( i_timeblock_start.compareTo( sched_busy[i].start ) >= 0 && i_timeblock_start.compareTo( sched_busy[i].end ) < 0 ) {
+					busycheck = "HIT";
+				}
+			}
+			if( i_timeschedule.isInSchedule( i_timeblock_start ) && i_timeschedule.isInSchedule(i_timeblock_end ) && busycheck != "HIT" ) {
+				// only create entries that fit schedule that are not already reserved
+				var gr_availability = new GlideRecord("x_casus_reservatio_availability");
+				gr_availability.initialize();
+				gr_availability.start = i_timeblock_start;
+				gr_availability.resource = resource.sys_id;
+				gr_availability.insert();
+			}
+			i_timeblock_start.addSeconds( 15 * 60 ); // increment start time
+			i_timeblock_end.addSeconds( 15 * 60 ); // increment end time
+		busycheck = "AVAIL";
+
+		}
+				gs.debug("resetAvailability - Step 2.5 complete ");
+	},
+    type: 'ReservationAvailabilitySetup'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>millsm</sys_created_by>
+        <sys_created_on>2017-03-22 16:36:38</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>5989739f0fe5b60012e4348ce1050e34</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name>ReservationAvailabilitySetup</sys_name>
+        <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
+        <sys_update_name>sys_script_include_5989739f0fe5b60012e4348ce1050e34</sys_update_name>
+        <sys_updated_by>millsm</sys_updated_by>
+        <sys_updated_on>2017-03-22 17:48:53</sys_updated_on>
+    </sys_script_include>
+</record_update>
