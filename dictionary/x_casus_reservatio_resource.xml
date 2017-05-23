@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
     <element label="Resource" max_length="40" name="x_casus_reservatio_resource" type="collection">
-        <element label="Feature" max_length="32" name="feature" reference="x_casus_reservatio_feature" type="reference"/>
-        <element default="javascript:getNextObjNumberPadded();" display="true" dynamic_default_value="fdcb83a85f220100a9ad2572f2b4773c" label="Number" max_length="40" name="number" type="string" use_dynamic_default="true"/>
+        <element label="Features" max_length="4000" name="features" reference="x_casus_reservatio_feature" type="glide_list"/>
+        <element choice="3" default="7" label="Forecast" max_length="40" name="forecast" type="integer">
+            <choice>
+                <element label="1 Month" value="30"/>
+                <element label="1 Week" value="7"/>
+                <element label="10 Days" value="10"/>
+                <element label="2 Weeks" value="14"/>
+                <element label="3 Weeks" value="21"/>
+                <element label="5 Days" value="5"/>
+            </choice>
+        </element>
+        <element default="javascript:getNextObjNumberPadded();" dynamic_default_value="fdcb83a85f220100a9ad2572f2b4773c" label="Number" max_length="40" name="number" type="string" use_dynamic_default="true"/>
         <element label="Schedule" max_length="32" name="schedule" reference="cmn_schedule" type="reference"/>
-        <element label="User" max_length="32" name="user" reference="sys_user" type="reference"/>
+        <element display="true" label="User" max_length="32" name="user" reference="sys_user" type="reference"/>
         <index name="index">
             <element name="schedule"/>
         </index>
         <index name="index2">
-            <element name="feature"/>
-        </index>
-        <index name="index3">
             <element name="user"/>
         </index>
     </element>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script/>
+        <description>view the resources schedule</description>
+        <direct>false</direct>
+        <endpoint>x_casus_reservatio_schedule.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">	
+	<!-- Import AngularJS Library -->
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.17/angular.min.js"  />   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.17/angular-sanitize.min.js"  />	
+   <g:requires name="service.sn-glideAjax.jsdbx" />
+
+   <g:requires name="x_casus_reservatio.app_angular_schedule.jsdbx" /> 
+
+<link rel="stylesheet" type="text/css" href="f09962246fbe7200ad6cd4a21c3ee4ca.cssdbx?" />
+	
+	<div class="container" ng-app="SchedApp" ng-controller="SchedCtrl" ng-init="initResources();">
+	<div class="row">
+		<div class="pull-right">
+			<button ng-click="prevWeek()">Previous Week</button>
+			<button ng-click="nextWeek()">Next Week</button>
+		</div>
+		<div>
+			Select Resource 
+			<select name="resource_selected" id="resource_selected" ng-model="resource_selected"  ng-change="getReservations(resource_selected);">
+				 <option ng-repeat="r in resource_list" ng-value="r.sys_id">{{r.name}}</option>
+			</select>
+		</div>
+
+	</div>
+	<div class="cd-schedule">
+
+	<div class="timeline">
+			<ul class="list-unstyled">
+				<li ng-repeat="t in timeline"><span>{{t.name}}</span></li>
+			</ul>
+		</div> <!-- .timeline -->
+		
+		<div class="events">
+			<ul class="list-unstyled">
+				<li class="events-group" ng-repeat="e in event_list" >
+					<div class="top-info">
+						<p class="top-day">{{e.day}}</p>
+						<p class="top-date">{{e.date}}</p>
+					</div>
+					<ul class="list-unstyled">
+					<li ng-repeat="rsrv in reservation_list | filter: filterFunction(e.date) " class="single-event need-position" data-start="{{rsrv.time}}" data-end="{{rsrv.end}}" ng-style="positionEvent(rsrv)" ng-click="viewReservation(rsrv)" >
+					<em class="event-name">{{rsrv.feature_name}}</em>
+						<span class="event-date">{{rsrv.time}} - {{rsrv.end}}</span>
+					</li>			
+				</ul>				
+				</li>
+			</ul>
+		</div>
+		<div class="event-modal">
+		<header class="header">
+			<div class="content">
+				<span class="event-date"></span>
+				<h3 class="event-name"></h3>
+			</div>
+
+			<div class="header-bg"></div>
+		</header>
+
+		<div class="body">
+			<div class="event-info"></div>
+			<div class="body-bg"></div>
+		</div>
+
+		<a href="#0" class="close">Close</a>
+	</div>
+	</div>
+		
+</div> <!-- end of my controller -->
+	
+</j:jelly>]]></html>
+        <name>schedule</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>millsm</sys_created_by>
+        <sys_created_on>2017-05-11 23:00:17</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>bb667aeb0f6a320012e4348ce1050e47</sys_id>
+        <sys_mod_count>164</sys_mod_count>
+        <sys_name>schedule</sys_name>
+        <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
+        <sys_update_name>sys_ui_page_bb667aeb0f6a320012e4348ce1050e47</sys_update_name>
+        <sys_updated_by>millsm</sys_updated_by>
+        <sys_updated_on>2017-05-23 16:40:56</sys_updated_on>
+    </sys_ui_page>
+</record_update>

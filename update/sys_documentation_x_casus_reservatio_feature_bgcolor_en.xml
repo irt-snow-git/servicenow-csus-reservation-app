@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <record_update>
-    <sys_documentation element="feature" label="Feature" language="en" table="x_casus_reservatio_resource">
+    <sys_documentation element="bgcolor" label="Bgcolor" language="en" table="x_casus_reservatio_feature">
         <sys_documentation action="INSERT_OR_UPDATE">
-            <element>feature</element>
+            <element>bgcolor</element>
             <help/>
             <hint/>
-            <label>Feature</label>
+            <label>Bgcolor</label>
             <language>en</language>
-            <name>x_casus_reservatio_resource</name>
-            <plural>Features</plural>
+            <name>x_casus_reservatio_feature</name>
+            <plural>Bgcolors</plural>
             <sys_class_name>sys_documentation</sys_class_name>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-03-20 21:34:23</sys_created_on>
+            <sys_created_on>2017-05-23 16:43:55</sys_created_on>
             <sys_customer_update>false</sys_customer_update>
-            <sys_id>413132360fe9760012e4348ce1050e8d</sys_id>
+            <sys_id>5a74d7db0f32760012e4348ce1050e28</sys_id>
             <sys_mod_count>0</sys_mod_count>
-            <sys_name>Feature</sys_name>
+            <sys_name>Bgcolor</sys_name>
             <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
             <sys_policy/>
             <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
             <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
-            <sys_update_name>sys_documentation_x_casus_reservatio_resource_feature_en</sys_update_name>
+            <sys_update_name>sys_documentation_x_casus_reservatio_feature_bgcolor_en</sys_update_name>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-03-20 21:34:23</sys_updated_on>
+            <sys_updated_on>2017-05-23 16:43:55</sys_updated_on>
             <url/>
             <url_target/>
         </sys_documentation>

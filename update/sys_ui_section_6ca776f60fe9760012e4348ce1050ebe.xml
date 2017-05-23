@@ -5,13 +5,13 @@
             <element>.begin_split</element>
             <position>0</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-03-20 22:02:29</sys_created_on>
-            <sys_id>6ca776f60fe9760012e4348ce1050ec1</sys_id>
+            <sys_created_on>2017-05-04 23:37:09</sys_created_on>
+            <sys_id>16dc329d6fae3a40ad6cd4a21c3ee45e</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_resource" sys_domain="global" view="Default view">6ca776f60fe9760012e4348ce1050ebe</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-03-20 22:02:29</sys_updated_on>
+            <sys_updated_on>2017-05-04 23:37:09</sys_updated_on>
             <sys_user/>
             <type>.begin_split</type>
         </sys_ui_element>
@@ -19,85 +19,99 @@
             <element>number</element>
             <position>1</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-03-20 22:02:29</sys_created_on>
-            <sys_id>eca776f60fe9760012e4348ce1050ec1</sys_id>
+            <sys_created_on>2017-05-04 23:37:09</sys_created_on>
+            <sys_id>96dc329d6fae3a40ad6cd4a21c3ee45e</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_resource" sys_domain="global" view="Default view">6ca776f60fe9760012e4348ce1050ebe</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-03-20 22:02:29</sys_updated_on>
-            <sys_user/>
-            <type/>
-        </sys_ui_element>
-        <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>feature</element>
-            <position>2</position>
-            <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-03-20 22:02:29</sys_created_on>
-            <sys_id>60a776f60fe9760012e4348ce1050ec2</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_ui_formatter/>
-            <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_resource" sys_domain="global" view="Default view">6ca776f60fe9760012e4348ce1050ebe</sys_ui_section>
-            <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-03-20 22:02:29</sys_updated_on>
+            <sys_updated_on>2017-05-04 23:37:09</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.split</element>
-            <position>3</position>
+            <position>2</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-03-20 22:02:29</sys_created_on>
-            <sys_id>e0a776f60fe9760012e4348ce1050ec2</sys_id>
+            <sys_created_on>2017-05-04 23:37:09</sys_created_on>
+            <sys_id>1adc329d6fae3a40ad6cd4a21c3ee45e</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_resource" sys_domain="global" view="Default view">6ca776f60fe9760012e4348ce1050ebe</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-03-20 22:02:29</sys_updated_on>
+            <sys_updated_on>2017-05-04 23:37:09</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>schedule</element>
-            <position>4</position>
+            <position>3</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-03-20 22:02:29</sys_created_on>
-            <sys_id>64a776f60fe9760012e4348ce1050ec2</sys_id>
+            <sys_created_on>2017-05-04 23:37:09</sys_created_on>
+            <sys_id>9adc329d6fae3a40ad6cd4a21c3ee45e</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_resource" sys_domain="global" view="Default view">6ca776f60fe9760012e4348ce1050ebe</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-03-20 22:02:29</sys_updated_on>
+            <sys_updated_on>2017-05-04 23:37:09</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>user</element>
-            <position>5</position>
+            <position>4</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-03-20 22:02:29</sys_created_on>
-            <sys_id>e4a776f60fe9760012e4348ce1050ec2</sys_id>
+            <sys_created_on>2017-05-04 23:37:09</sys_created_on>
+            <sys_id>1edc329d6fae3a40ad6cd4a21c3ee45e</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_resource" sys_domain="global" view="Default view">6ca776f60fe9760012e4348ce1050ebe</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-03-20 22:02:29</sys_updated_on>
+            <sys_updated_on>2017-05-04 23:37:09</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.end_split</element>
-            <position>6</position>
+            <position>5</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-03-20 22:02:29</sys_created_on>
-            <sys_id>68a776f60fe9760012e4348ce1050ec2</sys_id>
+            <sys_created_on>2017-05-04 23:37:09</sys_created_on>
+            <sys_id>9edc329d6fae3a40ad6cd4a21c3ee45e</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_resource" sys_domain="global" view="Default view">6ca776f60fe9760012e4348ce1050ebe</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-03-20 22:02:29</sys_updated_on>
+            <sys_updated_on>2017-05-04 23:37:09</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>features</element>
+            <position>6</position>
+            <sys_created_by>millsm</sys_created_by>
+            <sys_created_on>2017-05-04 23:37:09</sys_created_on>
+            <sys_id>12dc329d6fae3a40ad6cd4a21c3ee45f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_resource" sys_domain="global" view="Default view">6ca776f60fe9760012e4348ce1050ebe</sys_ui_section>
+            <sys_updated_by>millsm</sys_updated_by>
+            <sys_updated_on>2017-05-04 23:37:09</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>forecast</element>
+            <position>7</position>
+            <sys_created_by>millsm</sys_created_by>
+            <sys_created_on>2017-05-04 23:37:09</sys_created_on>
+            <sys_id>92dc329d6fae3a40ad6cd4a21c3ee45f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_resource" sys_domain="global" view="Default view">6ca776f60fe9760012e4348ce1050ebe</sys_ui_section>
+            <sys_updated_by>millsm</sys_updated_by>
+            <sys_updated_on>2017-05-04 23:37:09</sys_updated_on>
+            <sys_user/>
+            <type/>
         </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>

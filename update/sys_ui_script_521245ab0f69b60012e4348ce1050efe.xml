@@ -5,47 +5,232 @@
         <description/>
         <global>false</global>
         <name>x_casus_reservatio.app_angular_reserve</name>
-        <script><![CDATA[var reserveApp = angular.module('reserveApp', []);
+        <script><![CDATA[var myApp =  angular.module('ResApp' ,['ngSanitize'] );
 
-reserveApp.controller('ReserveCtrl',[
-"$scope",
-"$http",
-function($scope, $http) {
-	$scope.url = '/api/now/table/x_casus_reservatio_feature';
-	$http.defaults.headers.common.Accept = "application/json";
-	$scope.idSelectedVote = "5";
-	$scope.setSelected = function (idSelectedVote) {
-		$scope.idSelectedVote = idSelectedVote;
-		console.log("setting selected to " + idSelectedVote );
-	};
-	$scope.updateRecordList = function() {
+myApp.filter('myFormat', function() {
+    return function(x) {
+        var i, c, txt = "";
+        for (i = 0; i < x.length; i++) {
+            c = x[i];
+            if (i % 2 == 0) {
+                c = c.toUpperCase();
+            }
+            txt += c;
+        }
+        return txt;
+    };
+});
+
+myApp.filter('unique', function() {
+
+  // Take in the collection and which field
+  //   should be unique
+  // We assume an array of objects here
+  // NOTE: We are skipping any object which
+  //   contains a duplicated value for that
+  //   particular key.  Make sure this is what
+  //   you want!
+  return function (arr, targetField) {
+
+    var values = [],
+        i, 
+        unique,
+        l = arr.length, 
+        results = [],
+        obj;
+
+    // Iterate over all objects in the array
+    // and collect all unique values
+    for( i = 0; i < arr.length; i++ ) {
+
+      obj = arr[i];
+
+      // check for uniqueness
+      unique = true;
+      for( v = 0; v < values.length; v++ ){
+        if( obj[targetField] == values[v] ){
+          unique = false;
+        }
+      }
+
+      // If this is indeed unique, add its
+      //   value to our values and push
+      //   it onto the returned array
+      if( unique ){
+        values.push( obj[targetField] );
+        results.push( obj );
+      }
+
+    }
+    return results;
+  };
+});
+
+
+myApp.controller('ReserveCtrl', ['$scope', '$http' , '$sce' , function( $scope, $http , $sce ) {
+		$scope.reservation_detail="";
+		$scope.reservation_number="";
+		$scope.reservationComments="";
+		$scope.processingInfo = "";
+		$scope.hideOthers = false;	
+		$scope.myInterest = "FEA";
+		$scope.feanum = "FEA";
+	    $scope.myFeature_id = '';
+		$scope.filter_date = "";
+		$scope.filter_time = "";
+		$scope.processReservation = false;
+		$scope.url = '/api/now/table/x_casus_reservatio_feature';
+		$scope.url_avail = '/api/now/table/x_casus_reservatio_availability';
+		$http.defaults.headers.common.Accept = "application/json";
+		$scope.avail_times = "";
+		$scope.avail_dates = "";
+		$scope.listFeatures = function( myFeature ) {
+			var ga = new GlideAjax('ReservationUtils');
+			ga.addParam('sysparm_name' , 'getFeatures');
+			ga.addParam('feature' , 'FEA');
+			ga.setScope('x_casus_reservatio');
+			ga.getXML(function(response) {
+				var answer = response.responseXML.documentElement.getAttribute('answer');
+				$scope.$apply(function () {
+					$scope.features = angular.fromJson(answer);
+				});	
+			});	
+		};
 		
-		$http({
-			method: 'GET',
-			url: $scope.url + "?sysparm_query=typeSTARTSWITHsubject"+
-			"^ORDERBYDESCnumber"+
-			"&sysparm_limit=25",
-		}).
-		success( function(data, status) {
-			$scope.rfeature = data.result;
-		}).
-		error ( function(data, status) {
-			$scope.rfeature = [{"name": "Error fetching list"}];
-		});
-	};
+		$scope.listReservations = function() {
+			var ga = new GlideAjax('ReservationUtils');
+			ga.addParam('sysparm_name' , 'getReservations');
+			ga.setScope('x_casus_reservatio');
+			ga.getXML(function(response) {
+				var answer = response.responseXML.documentElement.getAttribute('answer');
+				$scope.$apply(function () {
+					$scope.reservations = angular.fromJson(answer);
+				});	
+			});
+		};
 	
-	$scope.updateRecordList();
-	
-}
+		$scope.listDates = function( myFeature_id ) {	
+			var ga = new GlideAjax('ReservationUtils');
+			ga.addParam('sysparm_name' , 'getAvailDates');
+			ga.addParam('feature' , myFeature_id);
+			ga.setScope('x_casus_reservatio');
+			ga.getXML(function(response) {
+				var answer = response.responseXML.documentElement.getAttribute('answer');
+				$scope.$apply(function () {
+					$scope.avail_dates = angular.fromJson(answer);
+				});	
+			});
+		};
 
-] );]]></script>
+		$scope.listTimes = function( check_date ) {	
+			var ga = new GlideAjax('ReservationUtils');
+			ga.addParam('sysparm_name' , 'getAvailTimes');
+			ga.addParam('feature' , $scope.feature_id);
+			ga.addParam('date' , check_date);
+			ga.setScope('x_casus_reservatio');
+			ga.getXML(function(response) {
+				var answer = response.responseXML.documentElement.getAttribute('answer');
+				$scope.$apply(function () {
+					$scope.avail_times = angular.fromJson(answer);
+				});	
+			});
+		};
+
+
+		$scope.clickFeature = function( myFeature_id ) {
+			$scope.feature_id = myFeature_id;
+			$scope.avail_times = ""; // reset other states
+			$scope.filter_date = "";	
+			$scope.filter_time = ""; // reset other states
+			$scope.listDates( myFeature_id );
+		};
+	
+		$scope.clickDate = function( mydate ) {
+			$scope.filter_date = mydate;			
+			$scope.listTimes( mydate );
+			$scope.filter_time = ""; // reset other states
+		};
+	
+		$scope.clickTime = function( mytime ) {
+			$scope.filter_time = mytime;			
+			// $scope.listTimes( mydate );
+		};
+	
+		$scope.reservation_chosen = "";
+		$scope.reservationOptions = function( myreservation ) {
+			$scope.reservation_chosen = myreservation;			
+			
+		};
+		$scope.reservationCancel = function( myreservation ) {
+			$scope.reservation_chosen = "";	
+			var ga = new GlideAjax('ReservationUtils');
+			ga.addParam('sysparm_name' , 'cancelReservation');
+			ga.addParam('reservation' , myreservation );
+			ga.setScope('x_casus_reservatio');
+			ga.getXML(function(response) {
+				$scope.listReservations(); // refresh the reservation list
+			});
+		};
+		$scope.addReservationComments = function() {
+			if( $scope.reservationComments != "" ) {
+				var ga = new GlideAjax('ReservationUtils');
+				ga.addParam('sysparm_name' , 'addComment');
+				ga.addParam('reservation' , $scope.reservation_number );
+				ga.addParam('comment' , $scope.reservationComments );
+				ga.setScope('x_casus_reservatio');
+				ga.getXML(function(response) {
+					$scope.reservation_number = "";
+					$scope.$apply();
+					alert("Comments saved");
+				});			
+			}
+
+		};
+		$scope.makeReservation = function() {
+		 //  alert("boop");
+			// disabled items so they are not changed while making reservation
+			$scope.processReservation = true;
+			$scope.processingInfo = "Making the reservation";
+			
+			var ga = new GlideAjax('ReservationUtils');
+			ga.addParam('sysparm_name' , 'makeReservation');
+			ga.addParam('feature' , $scope.feature_id);
+			ga.addParam('date' , $scope.filter_date);
+			ga.addParam('time' , $scope.filter_time);
+			ga.setScope('x_casus_reservatio');
+			ga.getXML(function(response) {
+				
+				var result = response.responseXML.getElementsByTagName("result");
+				var answer = result[0].getAttribute("status");
+				var reservation_info = result[0].getAttribute("reservation_info");
+				var reservation_detail = result[0].getAttribute("reservation_detail");
+
+
+
+				if( answer == "FAILURE" ) {
+					$scope.processingInfo = "The reservation was NOT successful, pick another time. " + reservation_info;
+					$scope.processReservation = false;
+					// reset the selctions and try again
+					$scope.clickDate( $scope.filter_date );
+				} 				
+				if( answer == "SUCCESS" ) {
+					$scope.processingInfo = "The reservation has been made. " + reservation_info;
+					$scope.processReservation = true;
+					$scope.hideOthers = true;
+					$scope.reservation_detail = $sce.trustAsHtml(reservation_detail);
+					$scope.reservation_number = result[0].getAttribute("reservation_number");
+				}
+				$scope.$apply();
+			});
+		};
+} ] );]]></script>
         <script_name>app_angular_reserve</script_name>
         <sys_class_name>sys_ui_script</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-03-22 21:26:11</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>521245ab0f69b60012e4348ce1050efe</sys_id>
-        <sys_mod_count>24</sys_mod_count>
+        <sys_mod_count>171</sys_mod_count>
         <sys_name>x_casus_reservatio.app_angular_reserve</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy/>
@@ -53,7 +238,7 @@ function($scope, $http) {
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_ui_script_521245ab0f69b60012e4348ce1050efe</sys_update_name>
         <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-03-30 05:48:27</sys_updated_on>
+        <sys_updated_on>2017-05-23 16:37:25</sys_updated_on>
         <use_scoped_format>false</use_scoped_format>
     </sys_ui_script>
 </record_update>

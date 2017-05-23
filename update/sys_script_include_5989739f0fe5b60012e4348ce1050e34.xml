@@ -12,14 +12,13 @@ ReservationAvailabilitySetup.prototype = {
     initialize: function() {
     },
 	resetAvailability: function( resource ) {
-		// step 1 - Remove any existing availability for this resource
+		gs.debug("step 1 - Remove any existing availability for this resource"); 
 		var gr_reservation = new GlideRecord("x_casus_reservatio_availability");
 		gr_reservation.addQuery("resource" , resource.sys_id );
 		gr_reservation.addNullQuery("reservation");
 		gr_reservation.deleteMultiple();
-
 		
-		// step 1.5 - Collect reservations and create a NOT AVAIL schedule
+		gs.debug("step 1.5 - Collect reservations and create a NOT AVAIL schedule"); 
 		var sched_busy = [];
 		var gr_reservation = new GlideRecord("x_casus_reservatio_availability");
 		gr_reservation.addQuery("resource" , resource.sys_id );
@@ -39,7 +38,10 @@ ReservationAvailabilitySetup.prototype = {
 		var i_timeblock_end = new GlideDateTime(gs.hoursAgoStart(0) ); // Get Now for end time
 		i_timeblock_end.addSeconds( 14 * 60 ); // add span for 15 minute block
 		var i_timeblock_stop = new GlideDateTime(gs.hoursAgoEnd(0) ); // for stopping the while loop
-		i_timeblock_stop.addDaysUTC( resource.feature.forecast * 1 ); // Add the days to span out
+		 i_timeblock_stop.addDaysUTC( resource.forecast * 1 ); // Add the days to span out ### FIXME ### now uses glidelist for multiple features
+
+		// i_timeblock_stop.addDaysUTC( 14 ); // Add the days to span out
+
 		var i_timeschedule = new GlideSchedule( resource.schedule.sys_id ); // grab the resources schedule
 		
 		
@@ -74,7 +76,7 @@ ReservationAvailabilitySetup.prototype = {
         <sys_created_on>2017-03-22 16:36:38</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>5989739f0fe5b60012e4348ce1050e34</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>19</sys_mod_count>
         <sys_name>ReservationAvailabilitySetup</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy>read</sys_policy>
@@ -82,6 +84,6 @@ ReservationAvailabilitySetup.prototype = {
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_script_include_5989739f0fe5b60012e4348ce1050e34</sys_update_name>
         <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-03-22 17:48:53</sys_updated_on>
+        <sys_updated_on>2017-05-04 23:36:27</sys_updated_on>
     </sys_script_include>
 </record_update>

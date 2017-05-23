@@ -30,9 +30,9 @@
         <element>notes</element>
         <element_reference>false</element_reference>
         <foreign_database/>
-        <internal_type display_value="String">string</internal_type>
+        <internal_type display_value="Journal">journal</internal_type>
         <mandatory>false</mandatory>
-        <max_length>40</max_length>
+        <max_length>4000</max_length>
         <name>x_casus_reservatio_reservation</name>
         <next_element/>
         <primary>false</primary>
@@ -53,7 +53,7 @@
         <sys_created_on>2017-03-20 21:39:39</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>6042f2360fe9760012e4348ce1050eb0</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>Notes</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy/>
@@ -61,7 +61,7 @@
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_dictionary_x_casus_reservatio_reservation_notes</sys_update_name>
         <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-03-20 21:39:39</sys_updated_on>
+        <sys_updated_on>2017-05-17 16:41:59</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

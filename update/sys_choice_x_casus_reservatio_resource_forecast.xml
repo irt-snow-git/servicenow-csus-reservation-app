@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="forecast" table="x_casus_reservatio_resource" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>forecast</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>10 Days</label>
+            <language>en</language>
+            <name>x_casus_reservatio_resource</name>
+            <sequence/>
+            <sys_created_by>millsm</sys_created_by>
+            <sys_created_on>2017-05-04 23:27:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>638ab25d6fae3a40ad6cd4a21c3ee4bd</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>millsm</sys_updated_by>
+            <sys_updated_on>2017-05-04 23:27:41</sys_updated_on>
+            <value>10</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>forecast</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>2 Weeks</label>
+            <language>en</language>
+            <name>x_casus_reservatio_resource</name>
+            <sequence/>
+            <sys_created_by>millsm</sys_created_by>
+            <sys_created_on>2017-05-04 23:28:05</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>c0cab25d6fae3a40ad6cd4a21c3ee43a</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>millsm</sys_updated_by>
+            <sys_updated_on>2017-05-04 23:28:07</sys_updated_on>
+            <value>14</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>forecast</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>3 Weeks</label>
+            <language>en</language>
+            <name>x_casus_reservatio_resource</name>
+            <sequence/>
+            <sys_created_by>millsm</sys_created_by>
+            <sys_created_on>2017-05-04 23:28:42</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>8fdaf6996fae3a40ad6cd4a21c3ee4fe</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>millsm</sys_updated_by>
+            <sys_updated_on>2017-05-04 23:28:45</sys_updated_on>
+            <value>21</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>forecast</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>1 Month</label>
+            <language>en</language>
+            <name>x_casus_reservatio_resource</name>
+            <sequence/>
+            <sys_created_by>millsm</sys_created_by>
+            <sys_created_on>2017-05-04 23:28:50</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>6eea365d6fae3a40ad6cd4a21c3ee467</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>millsm</sys_updated_by>
+            <sys_updated_on>2017-05-04 23:28:56</sys_updated_on>
+            <value>30</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>forecast</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>5 Days</label>
+            <language>en</language>
+            <name>x_casus_reservatio_resource</name>
+            <sequence/>
+            <sys_created_by>millsm</sys_created_by>
+            <sys_created_on>2017-05-04 23:27:59</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>6cba365d6fae3a40ad6cd4a21c3ee419</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>millsm</sys_updated_by>
+            <sys_updated_on>2017-05-04 23:28:01</sys_updated_on>
+            <value>5</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>forecast</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>1 Week</label>
+            <language>en</language>
+            <name>x_casus_reservatio_resource</name>
+            <sequence/>
+            <sys_created_by>millsm</sys_created_by>
+            <sys_created_on>2017-05-04 23:27:45</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>6aaafa996fae3a40ad6cd4a21c3ee47e</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>millsm</sys_updated_by>
+            <sys_updated_on>2017-05-04 23:27:47</sys_updated_on>
+            <value>7</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>forecast</element>
+            <name>x_casus_reservatio_resource</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>millsm</sys_created_by>
+            <sys_created_on>2017-05-04 23:27:36</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>92aaf25d6fae3a40ad6cd4a21c3ee41a</sys_id>
+            <sys_mod_count>12</sys_mod_count>
+            <sys_name>forecast</sys_name>
+            <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
+            <sys_update_name>sys_choice_x_casus_reservatio_resource_forecast</sys_update_name>
+            <sys_updated_by>millsm</sys_updated_by>
+            <sys_updated_on>2017-05-04 23:28:56</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

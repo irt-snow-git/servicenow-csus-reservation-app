@@ -16,18 +16,16 @@
         <application/>
         <change_fields>false</change_fields>
         <client_callable>false</client_callable>
-        <collection>x_casus_reservatio_resource</collection>
-        <condition/>
+        <collection>x_casus_reservatio_availability</collection>
+        <condition>true</condition>
         <description/>
         <execute_function>false</execute_function>
-        <filter_condition table="x_casus_reservatio_resource">featureISNOTEMPTY^EQ<item endquery="false" field="feature" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/>
-            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
-        </filter_condition>
+        <filter_condition/>
         <is_rest>false</is_rest>
         <message/>
-        <name>Update Availability</name>
+        <name>Update Date and Time strings</name>
         <onclick/>
-        <order>100</order>
+        <order>500</order>
         <priority>100</priority>
         <read_access_action>false</read_access_action>
         <rest_method/>
@@ -37,29 +35,54 @@
         <rest_variables/>
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
-var AvailTools = new ReservationAvailabilitySetup(); 
-	// Fix the availability for this resource
-	gs.addInfoMessage("starting update Availability");
-	AvailTools.resetAvailability( current );
-	gs.addInfoMessage("Updated Availability");
+
+	// Add your code here
+	var dateTime_start = current.start.getDisplayValue().split(' ');
+
+	// pretty date format
+	var monthNames = [
+		"January", "February", "March",
+		"April", "May", "June", "July",
+		"August", "September", "October",
+		"November", "December"
+	];
+	var dateparts = dateTime_start[0].split('-');
+	
+	var day = dateparts[2]*1;
+	var monthIndex = dateparts[1]*1;
+	var year = dateparts[0]*1;
+	current.date =  monthNames[monthIndex - 1] + ' ' + day + ', ' + + year;
+	
+	// pretty time
+	var timeParts = dateTime_start[1].split(':');
+	var meridian = "AM";
+	var hour = timeParts[0]*1;
+	if (timeParts[0] > 12 ) {
+		meridian = "PM";
+		hour = timeParts[0] - 12;
+	}
+	current.time = hour + ":" + timeParts[1] + " " + meridian;
+	
+
+
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
-        <sys_created_on>2017-03-22 16:45:29</sys_created_on>
+        <sys_created_on>2017-05-01 21:44:07</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_domain>global</sys_domain>
-        <sys_id>e0d004230f29b60012e4348ce1050e29</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_name>Update Availability</sys_name>
+        <sys_id>d6848b180f623a4012e4348ce1050e54</sys_id>
+        <sys_mod_count>33</sys_mod_count>
+        <sys_name>Update Date and Time strings</sys_name>
         <sys_overrides/>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
-        <sys_update_name>sys_script_e0d004230f29b60012e4348ce1050e29</sys_update_name>
+        <sys_update_name>sys_script_d6848b180f623a4012e4348ce1050e54</sys_update_name>
         <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-03-22 16:50:25</sys_updated_on>
+        <sys_updated_on>2017-05-15 23:35:08</sys_updated_on>
         <template/>
-        <when>after</when>
+        <when>before</when>
     </sys_script>
 </record_update>

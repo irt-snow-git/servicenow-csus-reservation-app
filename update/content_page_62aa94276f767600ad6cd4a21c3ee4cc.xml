@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update node_type="content_page" unload_date="2017-05-23 23:02:02">
+    <sys_portal action="delete_multiple" query="page=62aa94276f767600ad6cd4a21c3ee4cc">
+        <related_items_node>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone10</dropzone>
+                <offset>0</offset>
+                <page display_value="CSUS Reservations">62aa94276f767600ad6cd4a21c3ee4cc</page>
+                <summary/>
+                <sys_created_by>millsm</sys_created_by>
+                <sys_created_on>2017-05-23 21:52:54</sys_created_on>
+                <sys_id>183b58276f767600ad6cd4a21c3ee4f9</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>millsm</sys_updated_by>
+                <sys_updated_on>2017-05-23 21:52:54</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:54">183b58276f767600ad6cd4a21c3ee4f9</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:54</sys_created_on>
+                        <sys_id>1c3b58276f767600ad6cd4a21c3ee4f9</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:54</sys_updated_on>
+                        <value>com.glide.cms.RenderBlock</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>current_page</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:54">183b58276f767600ad6cd4a21c3ee4f9</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:54</sys_created_on>
+                        <sys_id>543b58276f767600ad6cd4a21c3ee4fa</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:54</sys_updated_on>
+                        <value>62aa94276f767600ad6cd4a21c3ee4cc</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:54">183b58276f767600ad6cd4a21c3ee4f9</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:54</sys_created_on>
+                        <sys_id>583b58276f767600ad6cd4a21c3ee4f9</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:54</sys_updated_on>
+                        <value>9e7ff6286f5b2600ad6cd4a21c3ee405</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>type</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:54">183b58276f767600ad6cd4a21c3ee4f9</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:54</sys_created_on>
+                        <sys_id>903b58276f767600ad6cd4a21c3ee4fa</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:54</sys_updated_on>
+                        <value>content_block_programmatic</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:54">183b58276f767600ad6cd4a21c3ee4f9</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:54</sys_created_on>
+                        <sys_id>dc3b58276f767600ad6cd4a21c3ee4f9</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:54</sys_updated_on>
+                        <value>CSUS IRT Header</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone10</dropzone>
+                <offset>2</offset>
+                <page display_value="CSUS Reservations">62aa94276f767600ad6cd4a21c3ee4cc</page>
+                <summary/>
+                <sys_created_by>millsm</sys_created_by>
+                <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                <sys_id>1c3bd8276f767600ad6cd4a21c3ee48a</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>millsm</sys_updated_by>
+                <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">1c3bd8276f767600ad6cd4a21c3ee48a</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:54</sys_created_on>
+                        <sys_id>103bd8276f767600ad6cd4a21c3ee48b</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:54</sys_updated_on>
+                        <value>com.glide.cms.RenderBlock</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>current_page</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">1c3bd8276f767600ad6cd4a21c3ee48a</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                        <sys_id>583bd8276f767600ad6cd4a21c3ee48b</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                        <value>62aa94276f767600ad6cd4a21c3ee4cc</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">1c3bd8276f767600ad6cd4a21c3ee48a</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:54</sys_created_on>
+                        <sys_id>5c3bd8276f767600ad6cd4a21c3ee48a</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:54</sys_updated_on>
+                        <value>509184af6fdfe600ad6cd4a21c3ee416</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>type</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">1c3bd8276f767600ad6cd4a21c3ee48a</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                        <sys_id>943bd8276f767600ad6cd4a21c3ee48b</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                        <value>content_block_programmatic</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">1c3bd8276f767600ad6cd4a21c3ee48a</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:54</sys_created_on>
+                        <sys_id>d03bd8276f767600ad6cd4a21c3ee48b</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:54</sys_updated_on>
+                        <value>CSUS IRT Navbar</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone70</dropzone>
+                <offset>0</offset>
+                <page display_value="CSUS Reservations">62aa94276f767600ad6cd4a21c3ee4cc</page>
+                <summary/>
+                <sys_created_by>millsm</sys_created_by>
+                <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                <sys_id>203bd8276f767600ad6cd4a21c3ee48e</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>millsm</sys_updated_by>
+                <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">203bd8276f767600ad6cd4a21c3ee48e</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                        <sys_id>243bd8276f767600ad6cd4a21c3ee48e</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                        <value>com.glide.cms.RenderBlock</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">203bd8276f767600ad6cd4a21c3ee48e</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                        <sys_id>603bd8276f767600ad6cd4a21c3ee48e</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                        <value>276a14276f767600ad6cd4a21c3ee49a</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>current_page</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">203bd8276f767600ad6cd4a21c3ee48e</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                        <sys_id>6c3bd8276f767600ad6cd4a21c3ee48e</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                        <value>62aa94276f767600ad6cd4a21c3ee4cc</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>type</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">203bd8276f767600ad6cd4a21c3ee48e</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                        <sys_id>a83bd8276f767600ad6cd4a21c3ee48e</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                        <value>content_block_programmatic</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">203bd8276f767600ad6cd4a21c3ee48e</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                        <sys_id>e43bd8276f767600ad6cd4a21c3ee48e</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                        <value>CSUS Reservation List</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone10</dropzone>
+                <offset>1</offset>
+                <page display_value="CSUS Reservations">62aa94276f767600ad6cd4a21c3ee4cc</page>
+                <summary/>
+                <sys_created_by>millsm</sys_created_by>
+                <sys_created_on>2017-05-23 21:52:54</sys_created_on>
+                <sys_id>903b58276f767600ad6cd4a21c3ee4fb</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>millsm</sys_updated_by>
+                <sys_updated_on>2017-05-23 21:52:54</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>type</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:54">903b58276f767600ad6cd4a21c3ee4fb</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:54</sys_created_on>
+                        <sys_id>1c3bd8276f767600ad6cd4a21c3ee489</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:54</sys_updated_on>
+                        <value>content_block_programmatic</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:54">903b58276f767600ad6cd4a21c3ee4fb</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:54</sys_created_on>
+                        <sys_id>583bd8276f767600ad6cd4a21c3ee489</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:54</sys_updated_on>
+                        <value>CSUS IRT Leadin</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:54">903b58276f767600ad6cd4a21c3ee4fb</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:54</sys_created_on>
+                        <sys_id>943b58276f767600ad6cd4a21c3ee4fb</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:54</sys_updated_on>
+                        <value>com.glide.cms.RenderBlock</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:54">903b58276f767600ad6cd4a21c3ee4fb</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:54</sys_created_on>
+                        <sys_id>d03b58276f767600ad6cd4a21c3ee4fb</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:54</sys_updated_on>
+                        <value>f20ccb876f9be600ad6cd4a21c3ee49f</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>current_page</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:54">903b58276f767600ad6cd4a21c3ee4fb</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:54</sys_created_on>
+                        <sys_id>dc3bd8276f767600ad6cd4a21c3ee489</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:54</sys_updated_on>
+                        <value>62aa94276f767600ad6cd4a21c3ee4cc</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone10</dropzone>
+                <offset>3</offset>
+                <page display_value="CSUS Reservations">62aa94276f767600ad6cd4a21c3ee4cc</page>
+                <summary/>
+                <sys_created_by>millsm</sys_created_by>
+                <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                <sys_id>943bd8276f767600ad6cd4a21c3ee48c</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>millsm</sys_updated_by>
+                <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>type</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">943bd8276f767600ad6cd4a21c3ee48c</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                        <sys_id>203bd8276f767600ad6cd4a21c3ee48d</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                        <value>content_block_programmatic</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">943bd8276f767600ad6cd4a21c3ee48c</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                        <sys_id>6c3bd8276f767600ad6cd4a21c3ee48c</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                        <value>CSUS IRT ServiceNow Navbar</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">943bd8276f767600ad6cd4a21c3ee48c</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                        <sys_id>a83bd8276f767600ad6cd4a21c3ee48c</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                        <value>com.glide.cms.RenderBlock</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">943bd8276f767600ad6cd4a21c3ee48c</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                        <sys_id>d43bd8276f767600ad6cd4a21c3ee48c</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                        <value>17d5b9cb0f4c320012e4348ce1050e23</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>current_page</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">943bd8276f767600ad6cd4a21c3ee48c</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                        <sys_id>e03bd8276f767600ad6cd4a21c3ee48d</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                        <value>62aa94276f767600ad6cd4a21c3ee4cc</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+            <sys_portal action="INSERT_OR_UPDATE">
+                <dropzone>dropzone90</dropzone>
+                <offset>0</offset>
+                <page display_value="CSUS Reservations">62aa94276f767600ad6cd4a21c3ee4cc</page>
+                <summary/>
+                <sys_created_by>millsm</sys_created_by>
+                <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                <sys_id>a83bd8276f767600ad6cd4a21c3ee48f</sys_id>
+                <sys_mod_count>0</sys_mod_count>
+                <sys_updated_by>millsm</sys_updated_by>
+                <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                <related_items_node>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>type</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">a83bd8276f767600ad6cd4a21c3ee48f</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                        <sys_id>243bd8276f767600ad6cd4a21c3ee490</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                        <value>content_block_programmatic</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>title</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">a83bd8276f767600ad6cd4a21c3ee48f</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                        <sys_id>603bd8276f767600ad6cd4a21c3ee490</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                        <value>CSUS IRT Footer</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>renderer</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">a83bd8276f767600ad6cd4a21c3ee48f</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                        <sys_id>ac3bd8276f767600ad6cd4a21c3ee48f</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                        <value>com.glide.cms.RenderBlock</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>current_page</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">a83bd8276f767600ad6cd4a21c3ee48f</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                        <sys_id>e43bd8276f767600ad6cd4a21c3ee490</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                        <value>62aa94276f767600ad6cd4a21c3ee4cc</value>
+                    </sys_portal_preferences>
+                    <sys_portal_preferences action="INSERT_OR_UPDATE">
+                        <name>sys_id</name>
+                        <portal_section display_value="Created 2017-05-23 14:52:55">a83bd8276f767600ad6cd4a21c3ee48f</portal_section>
+                        <sys_created_by>millsm</sys_created_by>
+                        <sys_created_on>2017-05-23 21:52:55</sys_created_on>
+                        <sys_id>e83bd8276f767600ad6cd4a21c3ee48f</sys_id>
+                        <sys_mod_count>0</sys_mod_count>
+                        <sys_updated_by>millsm</sys_updated_by>
+                        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+                        <value>d16cc8636f132a00ad6cd4a21c3ee4b2</value>
+                    </sys_portal_preferences>
+                </related_items_node>
+            </sys_portal>
+        </related_items_node>
+    </sys_portal>
+    <content_page action="INSERT_OR_UPDATE">
+        <content_site display_value="Service Portal">88eaa33e2b67b100b375d65ee8da1502</content_site>
+        <content_theme display_value="IRT RESPONSIVE NEW">257b371f6fdfe600ad6cd4a21c3ee4c1</content_theme>
+        <description/>
+        <frame_buster>false</frame_buster>
+        <layout display_value="Bootstrap_IRT_3col">fa1c7ae46f5b2600ad6cd4a21c3ee4a4</layout>
+        <model_id/>
+        <model_table/>
+        <name>CSUS Reservation List</name>
+        <order/>
+        <parent_page/>
+        <read_roles>public</read_roles>
+        <roles/>
+        <selectable>true</selectable>
+        <sys_class_name>content_page</sys_class_name>
+        <sys_created_by>millsm</sys_created_by>
+        <sys_created_on>2017-05-23 21:51:09</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>62aa94276f767600ad6cd4a21c3ee4cc</sys_id>
+        <sys_mod_count>60</sys_mod_count>
+        <sys_name>CSUS Reservation List</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
+        <sys_update_name>content_page_62aa94276f767600ad6cd4a21c3ee4cc</sys_update_name>
+        <sys_updated_by>millsm</sys_updated_by>
+        <sys_updated_on>2017-05-23 21:52:55</sys_updated_on>
+        <title>CSUS Reservations</title>
+        <url_suffix>reservations</url_suffix>
+        <user/>
+        <view/>
+        <workflow_state>published</workflow_state>
+    </content_page>
+</record_update>

@@ -9,18 +9,322 @@
         <name>ReservationUtils</name>
         <script><![CDATA[var ReservationUtils = Class.create();
 ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
-	getFeatures: function() {
+	getReservations: function () {
+		// pretty date format
+		var monthNames = [
+			"January", "February", "March",
+			"April", "May", "June", "July",
+			"August", "September", "October",
+			"November", "December"
+		];
+		var param_resource = this.getParameter('resource');
+		var gr_reservations = new GlideRecord("x_casus_reservatio_reservation");
+		if( param_resource != null ) {
+			gr_reservations.addQuery("resource",param_resource);
+		} else {
+			gr_reservations.addQuery("customer",gs.getUserID());
+		}
+		gr_reservations.query();
+		var list = [];
+		var yesterday =  gs.daysAgo(1);
+		while( gr_reservations.next() ) {
+			// grab the first availability record for this reservation
+			var gr_avail_info = new GlideRecord("x_casus_reservatio_availability");
+			gr_avail_info.addQuery("reservation",gr_reservations.sys_id);
+			if( param_resource == null ) {
+				gr_avail_info.addQuery("start",">=",  yesterday );
+			}
+			gr_avail_info.orderBy("start");
+			gr_avail_info.query();
+			if( gr_avail_info.next() ){
+				var start_time = new GlideDateTime( gr_reservations.start);
+				var end_time = new GlideDateTime(gr_reservations.end);
+				
+				var day = start_time.getDayOfMonthLocalTime();
+				var monthIndex = start_time.getMonthLocalTime();
+				var year = start_time.getYearLocalTime();
+				var date_text =  monthNames[monthIndex - 1] + ' ' + day + ', ' + + year;
+				var timeTemp = start_time.getLocalTime().toString().split(' ');
+				
+				var timeParts = timeTemp[1].split(':');
+				var meridian = "AM"; 
+				var hour =  Number(timeParts[0]);
+				if ( hour > 12 ) {
+					meridian = "PM";
+					hour = hour - 12;
+				}
+				var start_time_text = hour + ":" + timeParts[1] + " " + meridian;
+				
+				var timeTemp = end_time.getLocalTime().toString().split(' ');
+				var timeParts = timeTemp[1].split(':');
+				var meridian = "AM";
+				var hour = Number(timeParts[0]);
+				if ( hour > 12 ) {
+					meridian = "PM";
+					hour = hour - 12;
+				}
+				var end_time_text = hour + ":" + timeParts[1] + " " + meridian;
+
+				// gs.addInfoMessage( " i got " + start_time_text + " to " + end_time_text);
+			   list.push( { 
+				start : gr_reservations.start+'' ,
+				date : date_text+'' ,
+				time : start_time_text+'' ,
+				end : end_time_text+'' ,
+				number : gr_reservations.number+'' ,
+				customer : gr_reservations.customer.name + '' ,
+				feature_name : gr_reservations.feature.name + '',
+				feature_description : gr_reservations.feature.description + '',
+				resource_name : gr_avail_info.resource.user.name + '',
+				feature_detail : gr_reservations.feature.details + '',
+				bgcolor : gr_reservations.feature.bgcolor + '' ,
+				sys_id : gr_reservations.sys_id+'' 
+			} );
+		}	
+		}
+		return new global.JSON().encodeArray(list);
+
+		
+	},
+	getFeatures: function () {
 		var features = new GlideRecord("x_casus_reservatio_feature");
 		features.addQuery("type","subject");
 		features.query();
 		
 		var list = [];
 		while( features.next() ) {
-			list.push( features.name + "");
+			list.push( { 
+				name : features.name+'' ,
+				description : features.description+'' ,
+				number : features.number+'' ,
+				sys_id : features.sys_id+'' 
+			} );
 		}
 		return new global.JSON().encodeArray(list);
-	
+
+	} ,
+	getResources: function () {
+		var resources = new GlideRecord("x_casus_reservatio_resource");
+		resources.query();
+		
+		var list = [];
+		while( resources.next() ) {
+			list.push( { 
+				name : resources.user.name+'' ,
+				number : resources.number+'' ,
+				sys_id : resources.sys_id+'' 
+			} );
+		}
+		return new global.JSON().encodeArray(list);
+
+	} ,
+	getAvailTimes: function() {
+		var param_myFeature = this.getParameter('feature');
+		var param_myDate = this.getParameter('date');
+		var feature_sys_id = "NOTFOUND";
+		
+		// grab the features sys_id
+		var gr_feature = new GlideRecord("x_casus_reservatio_feature");
+		gr_feature.addQuery('number',param_myFeature);
+		gr_feature.query();
+		if( gr_feature.next()){
+			feature_sys_id = gr_feature.sys_id;
+		}
+		
+		// Loop through resources with this feature
+		var gr_collectResources = new GlideRecord("x_casus_reservatio_resource");
+		gr_collectResources.addQuery("features","CONTAINS",feature_sys_id); // glidelist is a list of sys_ids
+		gr_collectResources.query();
+
+		var list = []; // the result list
+		var span_needed = gr_feature.duration;
+		
+		while( gr_collectResources.next() ) {
+			// loop through the avilability table for this resource
+			var gr_collectTimes = new GlideRecord("x_casus_reservatio_availability");
+			// gr_collectTimes.addQuery('reservation','=','');
+			gr_collectTimes.addQuery('resource', gr_collectResources.sys_id ) ;
+			gr_collectTimes.addQuery('date','=',param_myDate);
+			gr_collectTimes.orderBy('start');
+			gr_collectTimes.query();
+			
+			var span_count = 0;
+			while( gr_collectTimes.next()) {
+				if( span_count == 0 ) {
+					// first block, grab the info in case we succeed
+					var my_start = gr_collectTimes.start+'';
+					var my_date = gr_collectTimes.date+'';
+					var my_time = gr_collectTimes.time+'';
+				}
+				if( gr_collectTimes.reservation == '' ) {
+					// this slot is available so lets keep going
+					span_count++;
+					if( span_count >= span_needed ) {
+						// we reached a full block. record it and start again.
+						list.push( { 
+							start : my_start ,
+							date : my_date ,
+							time : my_time
+						} );
+						span_count = 0;
+					}
+				} else {
+					// this block is already reserved, reset our counter
+					span_count = 0;
+				}	
+			}		
+		}
+		// we assume the client will sort the times
+		return new global.JSON().encodeArray(list);;
+
+
 	},
+	getAvailDates: function () {
+		var param_myFeature = this.getParameter('feature');
+		var feature_sys_id = "NOTFOUND";
+		
+		// grab the features sys_id
+		var gr_feature = new GlideRecord("x_casus_reservatio_feature");
+		gr_feature.addQuery('number',param_myFeature);
+		gr_feature.query();
+		if( gr_feature.next()){
+			feature_sys_id = gr_feature.sys_id;
+		}
+		
+		// grab all resources with this feature
+		var gr_collectResources = new GlideRecord("x_casus_reservatio_resource");
+		gr_collectResources.addQuery("features","CONTAINS",feature_sys_id); // glidelist is a list of sys_ids
+		gr_collectResources.query();
+		var resource_list_sys_ids = "";
+		while( gr_collectResources.next() ) {
+			resource_list_sys_ids = resource_list_sys_ids + gr_collectResources.sys_id + ',';
+		}
+		// grab all the dates - Aggregate the dates
+		var gr_collectDates = new GlideAggregate("x_casus_reservatio_availability");
+		gr_collectDates.addQuery('reservation','=','');
+		gr_collectDates.addQuery('resource','IN', resource_list_sys_ids ) ;
+		gr_collectDates.addQuery('date','!=','');
+		gr_collectDates.addAggregate('count');
+		gr_collectDates.groupBy('date');
+		gr_collectDates.orderBy('start');
+
+		gr_collectDates.query();
+		var list = [];
+		while( gr_collectDates.next() ) {
+			list.push( { 
+				start : gr_collectDates.start+'' ,
+				date : gr_collectDates.date+'' ,
+				time : gr_collectDates.time+'' 
+			} );
+		}
+		return new global.JSON().encodeArray(list);;
+	},
+	cancelReservation: function () {
+		var param_myReservation = this.getParameter('reservation');
+		var result = this.newItem("result");
+		
+		// grab the reservation sysID
+		var gr_reservation = new GlideRecord("x_casus_reservatio_reservation");
+		gr_reservation.addQuery("number",param_myReservation);
+		gr_reservation.query();
+		if( gr_reservation.next() ) {
+			// remove any reservation records in the availability
+			var myreservation_sys_id = gr_reservation.sys_id+'';
+			gr_reservation.deleteRecord();
+		
+		}
+	},
+	
+	addComment: function () {
+		var param_reservation = this.getParameter('reservation');
+		var param_comment = this.getParameter('comment');
+		var gr_reservation = new GlideRecord("x_casus_reservatio_reservation");
+		gr_reservation.addQuery("number",param_reservation);
+		gr_reservation.query();
+		if( gr_reservation.next() ) {
+			gr_reservation.notes = param_comment; // add comment to notes journal field
+			gr_reservation.update();
+		}
+	},
+	
+	makeReservation: function () {
+		var param_myFeature = this.getParameter('feature');
+		var param_myDate = this.getParameter('date');
+		var param_myTime = this.getParameter('time');
+		var result = this.newItem("result");
+		
+		// grab the features sys_id
+		var gr_feature = new GlideRecord("x_casus_reservatio_feature");
+		gr_feature.addQuery('number',param_myFeature);
+		gr_feature.query();
+		if( gr_feature.next()){
+			feature_sys_id = gr_feature.sys_id;
+		}
+
+		// grab all resources with this feature
+		var gr_collectResources = new GlideRecord("x_casus_reservatio_resource");
+		gr_collectResources.addQuery("features","CONTAINS",feature_sys_id); // glidelist is a list of sys_ids
+		gr_collectResources.query();
+		var resource_list_sys_ids = "";
+		while( gr_collectResources.next() ) {
+			resource_list_sys_ids = resource_list_sys_ids + gr_collectResources.sys_id + ',';
+		}
+
+		// find the first time available for the resource
+		var gr_avail = new GlideRecord("x_casus_reservatio_availability");
+		gr_avail.addQuery('reservation','=','');
+		gr_avail.addQuery('resource','IN', resource_list_sys_ids ) ;
+		gr_avail.addQuery('date','=',param_myDate);
+		gr_avail.addQuery('time','=',param_myTime);
+		gr_avail.query();
+		
+		// see if we have a big enough slot
+		var found_span = false;
+		var span_needed = gr_feature.duration;
+		while( found_span == false ) {
+			if( gr_avail.next() ) {
+				var check_resource = gr_avail.resource;
+				var startDateTime = new GlideDateTime( gr_avail.start );
+				var endDateTime = new GlideDateTime( gr_avail.start );
+				endDateTime.addSeconds( (15 * 60 * span_needed) - 1 );
+				// count the number of records in the span
+				var gr_check = new GlideRecord("x_casus_reservatio_availability");
+				gr_check.addQuery("resource" , check_resource );
+				gr_check.addQuery('reservation','=','');
+				gr_check.addQuery('start','>=',startDateTime);
+				gr_check.addQuery('start','<=',endDateTime);
+				gr_check.query();
+				if( gr_check.getRowCount() == span_needed) {
+				   // we got a match. make reservation
+					var gr_reserve = new GlideRecord("x_casus_reservatio_reservation");
+					gr_reserve.initialize();
+					gr_reserve.customer = gs.getUserID();
+					gr_reserve.resource = gr_avail.resource;
+					gr_reserve.feature = feature_sys_id;
+					gr_reserve.start = startDateTime;
+					gr_reserve.end = endDateTime;
+					gr_reserve.insert();
+					while( gr_check.next()){
+						gr_check.reservation = gr_reserve.sys_id;
+						gr_check.update();
+					}
+					result.setAttribute("reservation_info", "Reservation Number " + gr_reserve.number );
+					result.setAttribute("reservation_number",  gr_reserve.number );
+					result.setAttribute("reservation_detail",  gr_feature.details );
+					result.setAttribute("status", "SUCCESS");
+					found_span = true;
+				}
+			} else {
+				// ran out of avail records to check 
+				result.setAttribute("reservation_info", "Reservation Slot is no longer available.");
+				result.setAttribute("status", "FAILURE");
+				found_span = true;
+			}			
+		}
+		return result;
+		
+	},
+	
 
     type: 'ReservationUtils'
 });]]></script>
@@ -29,7 +333,7 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
         <sys_created_on>2017-03-22 21:43:12</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>5a638d2f0f69b60012e4348ce1050e67</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>139</sys_mod_count>
         <sys_name>ReservationUtils</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy>read</sys_policy>
@@ -37,6 +341,6 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_script_include_5a638d2f0f69b60012e4348ce1050e67</sys_update_name>
         <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-03-22 21:43:12</sys_updated_on>
+        <sys_updated_on>2017-05-23 16:43:04</sys_updated_on>
     </sys_script_include>
 </record_update>

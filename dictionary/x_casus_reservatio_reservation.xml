@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element label="Reservation" max_length="40" name="x_casus_reservatio_reservation" type="collection">
+    <element label="Reservation" max_length="40" name="x_casus_reservatio_reservation" text_index="true" type="collection">
         <element label="Confirmation" max_length="40" name="confirmation" type="string"/>
         <element label="Customer" max_length="32" name="customer" reference="sys_user" type="reference"/>
-        <element label="Notes" max_length="40" name="notes" type="string"/>
+        <element label="End" max_length="40" name="end" type="glide_date_time"/>
+        <element label="Feature" max_length="32" name="feature" reference="x_casus_reservatio_feature" type="reference"/>
+        <element label="Notes" max_length="4000" name="notes" type="journal"/>
         <element default="javascript:getNextObjNumberPadded();" dynamic_default_value="fdcb83a85f220100a9ad2572f2b4773c" label="Number" max_length="40" name="number" type="string" use_dynamic_default="true"/>
         <element label="Resource" max_length="32" name="resource" reference="x_casus_reservatio_resource" type="reference"/>
+        <element label="Start" max_length="40" name="start" type="glide_date_time"/>
         <element label="State" max_length="40" name="state" type="string"/>
         <index name="index">
-            <element name="resource"/>
+            <element name="feature"/>
         </index>
         <index name="index2">
+            <element name="resource"/>
+        </index>
+        <index name="index3">
             <element name="customer"/>
         </index>
     </element>

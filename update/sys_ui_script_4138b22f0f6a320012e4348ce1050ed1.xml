@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description/>
+        <global>false</global>
+        <name>x_casus_reservatio.app_angular_schedule</name>
+        <script><![CDATA[var myApp =  angular.module('SchedApp' ,['ngSanitize'] )
+
+.filter('matchesDate', function () {
+	// Look for all the items that happen on the passed date
+  return function (items, theDate) {
+    var filtered = [];
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      if ( true) {
+        filtered.push(item);
+      }
+    }
+    return filtered;
+  };
+});
+
+myApp.controller('SchedCtrl', ['$scope', '$http' , '$sce' , function( $scope, $http , $sce ) {
+	
+	$scope.filterFunction = function( date ) { 
+		return function( element ) {
+			 // alert( " my element is " + element.date + " and my date is " + date );
+			 return element.date == date ? true : false;
+		};
+	};
+	
+	$scope.timeline = [ 
+		{ name: "08:00" },
+		{ name: "08:30" },
+		{ name: "09:00" },
+		{ name: "09:30" },
+		{ name: "10:00" },
+		{ name: "10:30" },
+		{ name: "11:00" },
+		{ name: "11:30" },
+		{ name: "12:00" },
+		{ name: "12:30" },
+		{ name: "01:00" },
+		{ name: "01:30" },
+		{ name: "02:00" },
+		{ name: "02:30" },
+		{ name: "03:00" },
+		{ name: "03:30" },
+		{ name: "04:00" },
+		{ name: "04:30" },
+		{ name: "05:00" },
+		{ name: "05:30" },
+		{ name: "06:00" },
+		{ name: "06:30" },
+		{ name: "07:00" },
+		{ name: "07:30" }		
+		];
+	$scope.slotHeight = 50;
+	$scope.timelineStart = 480;
+	$scope.timelineUnitDuration = 30;
+	$scope.dayLookup = [
+		 "Sunday", "Monday" , "Tuesday" , "Wednesday" , "Thursday" , "Friday" , "Saturday"
+		];
+	$scope.monthLookup = [
+		"January" , "February" , "March" , "April" , "May" , "June" , "July" , "August" , "September" , "October" , "November" , "December"
+	];
+	$scope.event_list = [];
+	$scope.resource_selected = "Matthew";
+	$scope.resource_list = [];
+	$scope.cal_start = "";
+		
+	$scope.startsWith = function (actual, expected) {
+		var lowerStr = (actual + "").toLowerCase();
+		return lowerStr.indexOf(expected.toLowerCase()) === 0;
+	};
+	
+	$scope.initResources = function ( ) {	
+		var now = new Date();
+		// set now to the monday
+		now.setDate( now.getDate() - now.getDay());
+		$scope.cal_start = new Date(now);
+		
+		for( var i = 0; i < 7 ; i++) {
+			$scope.event_list.push(
+				{ 
+					'date' : $scope.monthLookup[now.getMonth()] + " " + now.getDate() + ", " + now.getFullYear()  ,
+					'day' : $scope.dayLookup[now.getDay()] 
+				});
+			now.setDate(now.getDate() + 1);
+		}
+		
+		var ga = new GlideAjax('ReservationUtils');
+		ga.addParam('sysparm_name' , 'getResources');
+		ga.setScope('x_casus_reservatio');
+		ga.getXML(function(response) {
+			var answer = response.responseXML.documentElement.getAttribute('answer');
+			$scope.$apply(function () {
+				$scope.resource_list = angular.fromJson(answer);
+			});	
+		});	
+
+	};
+	
+	$scope.getReservations = function ( myResource ) {
+		var ga = new GlideAjax('ReservationUtils');
+		ga.addParam('sysparm_name' , 'getReservations');
+		ga.addParam('resource' , myResource);
+		ga.setScope('x_casus_reservatio');
+		ga.getXML(function(response) {
+			var answer = response.responseXML.documentElement.getAttribute('answer');
+			$scope.$apply(function () {
+				$scope.reservation_list = angular.fromJson(answer);
+			});	
+		});
+	};
+
+	$scope.positionEvent = function ( rsrv ) {
+		//  alert("need to position " + rsrv.time );
+		var timeparts = rsrv.time.split(":");
+		var start_timestamp = Number(timeparts[0].match(/\d+/)[0]*60) + Number(timeparts[1].match(/\d+/)[0]);
+		
+		if( timeparts[1].indexOf("PM")!= -1 ) {
+			start_timestamp = Number(start_timestamp) + 720;
+		}
+		
+		var timeparts = rsrv.end.split(":");
+		var end_timestamp = Number(timeparts[0].match(/\d+/)[0]*60) + Number(timeparts[1].match(/\d+/)[0]);
+		// alert("start time of " + rsrv.time + " is " + start_timestamp);
+		if( timeparts[1].indexOf("PM")!= -1 ) {
+			end_timestamp = Number(end_timestamp) + 720;
+		}
+		var duration = end_timestamp - start_timestamp;
+		
+
+		var eventTop = $scope.slotHeight * (start_timestamp - $scope.timelineStart)/$scope.timelineUnitDuration,
+			eventHeight = $scope.slotHeight*duration/$scope.timelineUnitDuration;
+		
+	
+		return { 
+			'top': (eventTop -1) +'px'  ,
+			'height' : (eventHeight+1)+'px' ,
+			'background-color' : rsrv.bgcolor
+		};
+	};
+	
+	$scope.nextWeek = function ( ) {
+		var now = $scope.cal_start;
+		now.setDate( now.getDate() + 7); //add a week
+		$scope.cal_start = new Date(now);
+		$scope.event_list=[];
+		for( var i = 0; i < 7 ; i++) {
+			$scope.event_list.push(
+				{ 
+					'date' : $scope.monthLookup[now.getMonth()] + " " + now.getDate() + ", " + now.getFullYear()  ,
+					'day' : $scope.dayLookup[now.getDay()] 
+				});
+			now.setDate(now.getDate() + 1);
+		}
+	};
+	
+	$scope.prevWeek = function ( ) {
+		var now = $scope.cal_start;
+		now.setDate( now.getDate() - 7); //add a week
+		$scope.cal_start = new Date(now);
+		$scope.event_list=[];
+		for( var i = 0; i < 7 ; i++) {
+			$scope.event_list.push(
+				{ 
+					'date' : $scope.monthLookup[now.getMonth()] + " " + now.getDate() + ", " + now.getFullYear()  ,
+					'day' : $scope.dayLookup[now.getDay()] 
+				});
+			now.setDate(now.getDate() + 1);
+		}
+	};
+	
+	$scope.viewReservation = function ( myReservation ) {
+		//	alert("lets view https://csusdev.service-now.com/nav_to.do?uri=x_casus_reservatio_reservation.do?sys_id=" + myReservation.sys_id );
+			var dialog = new GlideDialogForm("Reservation" , "x_casus_reservatio_reservation");
+		dialog.setSysID( myReservation.sys_id );
+		dialog.render();
+
+	};
+	
+	$scope.addReservationComments = function ( ) {
+		// add comments to reservation
+		alert("doit");
+	};
+	
+
+} ] );]]></script>
+        <script_name>app_angular_schedule</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>millsm</sys_created_by>
+        <sys_created_on>2017-05-11 23:06:33</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>4138b22f0f6a320012e4348ce1050ed1</sys_id>
+        <sys_mod_count>144</sys_mod_count>
+        <sys_name>x_casus_reservatio.app_angular_schedule</sys_name>
+        <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
+        <sys_update_name>sys_ui_script_4138b22f0f6a320012e4348ce1050ed1</sys_update_name>
+        <sys_updated_by>millsm</sys_updated_by>
+        <sys_updated_on>2017-05-23 16:46:00</sys_updated_on>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>
