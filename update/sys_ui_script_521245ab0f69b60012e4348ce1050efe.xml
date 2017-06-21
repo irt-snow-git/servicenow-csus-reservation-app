@@ -7,6 +7,10 @@
         <name>x_casus_reservatio.app_angular_reserve</name>
         <script><![CDATA[var myApp =  angular.module('ResApp' ,['ngSanitize'] );
 
+myApp.config(['$locationProvider',function AppConfig($locationProvider) {
+	$locationProvider.html5Mode(true);
+}]);
+
 myApp.filter('myFormat', function() {
     return function(x) {
         var i, c, txt = "";
@@ -67,27 +71,34 @@ myApp.filter('unique', function() {
 });
 
 
-myApp.controller('ReserveCtrl', ['$scope', '$http' , '$sce' , function( $scope, $http , $sce ) {
+myApp.controller('ReserveCtrl', ['$scope', '$http' , '$sce' , '$location',  function( $scope, $http , $sce , $location ) {
 		$scope.reservation_detail="";
 		$scope.reservation_number="";
 		$scope.reservationComments="";
 		$scope.processingInfo = "";
 		$scope.hideOthers = false;	
-		$scope.myInterest = "FEA";
+		$scope.myInterest = $location.search().feature;
 		$scope.feanum = "FEA";
 	    $scope.myFeature_id = '';
 		$scope.filter_date = "";
 		$scope.filter_time = "";
+		$scope.filter_feature_type = $location.search().feature_type;
+		$scope.filter_resource = $location.search().resource;
+		$scope.filter_feature = $location.search().feature;
 		$scope.processReservation = false;
 		$scope.url = '/api/now/table/x_casus_reservatio_feature';
 		$scope.url_avail = '/api/now/table/x_casus_reservatio_availability';
 		$http.defaults.headers.common.Accept = "application/json";
 		$scope.avail_times = "";
 		$scope.avail_dates = "";
+	
+	
 		$scope.listFeatures = function( myFeature ) {
 			var ga = new GlideAjax('ReservationUtils');
 			ga.addParam('sysparm_name' , 'getFeatures');
-			ga.addParam('feature' , 'FEA');
+			ga.addParam('feature' , $scope.filter_feature);
+			ga.addParam('feature_type' , $scope.filter_feature_type );
+			// alert("my filter_feature_type is " + $scope.filter_feature_type );
 			ga.setScope('x_casus_reservatio');
 			ga.getXML(function(response) {
 				var answer = response.responseXML.documentElement.getAttribute('answer');
@@ -113,6 +124,7 @@ myApp.controller('ReserveCtrl', ['$scope', '$http' , '$sce' , function( $scope, 
 			var ga = new GlideAjax('ReservationUtils');
 			ga.addParam('sysparm_name' , 'getAvailDates');
 			ga.addParam('feature' , myFeature_id);
+			ga.addParam('filter_resource' , $scope.filter_resource );
 			ga.setScope('x_casus_reservatio');
 			ga.getXML(function(response) {
 				var answer = response.responseXML.documentElement.getAttribute('answer');
@@ -126,6 +138,7 @@ myApp.controller('ReserveCtrl', ['$scope', '$http' , '$sce' , function( $scope, 
 			var ga = new GlideAjax('ReservationUtils');
 			ga.addParam('sysparm_name' , 'getAvailTimes');
 			ga.addParam('feature' , $scope.feature_id);
+			ga.addParam('filter_resource' , $scope.filter_resource );
 			ga.addParam('date' , check_date);
 			ga.setScope('x_casus_reservatio');
 			ga.getXML(function(response) {
@@ -230,7 +243,7 @@ myApp.controller('ReserveCtrl', ['$scope', '$http' , '$sce' , function( $scope, 
         <sys_created_on>2017-03-22 21:26:11</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>521245ab0f69b60012e4348ce1050efe</sys_id>
-        <sys_mod_count>171</sys_mod_count>
+        <sys_mod_count>193</sys_mod_count>
         <sys_name>x_casus_reservatio.app_angular_reserve</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy/>
@@ -238,7 +251,7 @@ myApp.controller('ReserveCtrl', ['$scope', '$http' , '$sce' , function( $scope, 
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_ui_script_521245ab0f69b60012e4348ce1050efe</sys_update_name>
         <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-05-23 16:37:25</sys_updated_on>
+        <sys_updated_on>2017-06-21 20:41:53</sys_updated_on>
         <use_scoped_format>false</use_scoped_format>
     </sys_ui_script>
 </record_update>

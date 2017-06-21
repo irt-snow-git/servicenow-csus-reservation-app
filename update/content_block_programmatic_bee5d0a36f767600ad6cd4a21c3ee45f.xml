@@ -10,10 +10,21 @@
         <name>CSUS Reservation</name>
         <programmatic_content><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <j:jelly xmlns:j="jelly:core" xmlns:g="glide" xmlns:g2="null" xmlns:j2="null" trim="false">
+	<base href="/" />
+<j:if test="${!gs.getSession().isLoggedIn()}">
+	<script>
+		window.location = "/nav_to.do?uri="+ window.location.pathname + window.location.search;
+	</script>	
+</j:if>
+<j:if test="${gs.getSession().isLoggedIn()}">
    <!-- Import AngularJS Library -->
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.17/angular.min.js"  />   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.17/angular-sanitize.min.js"  />	
    <g:requires name="service.sn-glideAjax.jsdbx" />
-   <g:requires name="x_casus_reservatio.app_angular_reserve.jsdbx" /> 
+   <!-- Import my UI Script - get updated timestamp to invalidate cache if script changes -->
+   <g:evaluate var="jvar_stamp">var gr = new GlideRecord('sys_ui_script');  
+    gr.get("521245ab0f69b60012e4348ce1050efe");
+    gr.getValue('sys_updated_on');</g:evaluate>
+   <g:requires name="x_casus_reservatio.app_angular_reserve.jsdbx?${jvar_stamp}" /> 
    <!-- The User Interface -->
 <style>
 .scroll-list {
@@ -105,14 +116,14 @@
 	</div>
 	   </div>
 	</div>
-     
+</j:if>
 </j:jelly>]]></programmatic_content>
         <sys_class_name>content_block_programmatic</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-05-23 21:30:45</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>bee5d0a36f767600ad6cd4a21c3ee45f</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>CSUS Reservation</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy/>
@@ -120,7 +131,7 @@
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>content_block_programmatic_bee5d0a36f767600ad6cd4a21c3ee45f</sys_update_name>
         <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-05-23 21:39:04</sys_updated_on>
+        <sys_updated_on>2017-06-21 20:34:22</sys_updated_on>
         <two_phase>false</two_phase>
     </content_block_programmatic>
 </record_update>

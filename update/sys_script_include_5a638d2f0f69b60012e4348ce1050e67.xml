@@ -87,8 +87,19 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 		
 	},
 	getFeatures: function () {
+		var param_feature_type = this.getParameter('feature_type');
+		if( param_feature_type == null ) param_feature_type = "subject";
+		var param_feature = this.getParameter('feature');
+		if( param_feature == null ) param_feature = "";
+
+
 		var features = new GlideRecord("x_casus_reservatio_feature");
-		features.addQuery("type","subject");
+		features.addQuery("type","CONTAINS",param_feature_type);
+		if( param_feature != '' ){
+			features.addQuery("number","IN",param_feature);	
+		}
+
+		// gs.addInfoMessage("i got this for feature type " + param_feature_type);
 		features.query();
 		
 		var list = [];
@@ -121,6 +132,8 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 	getAvailTimes: function() {
 		var param_myFeature = this.getParameter('feature');
 		var param_myDate = this.getParameter('date');
+
+		var param_filter_resource = this.getParameter('filter_resource');
 		var feature_sys_id = "NOTFOUND";
 		
 		// grab the features sys_id
@@ -134,6 +147,11 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 		// Loop through resources with this feature
 		var gr_collectResources = new GlideRecord("x_casus_reservatio_resource");
 		gr_collectResources.addQuery("features","CONTAINS",feature_sys_id); // glidelist is a list of sys_ids
+		if( param_filter_resource != '' ) {
+			gr_collectResources.addQuery("number","IN",param_filter_resource); // restrict to resource	
+		}
+
+
 		gr_collectResources.query();
 
 		var list = []; // the result list
@@ -182,6 +200,7 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 	getAvailDates: function () {
 		var param_myFeature = this.getParameter('feature');
 		var feature_sys_id = "NOTFOUND";
+		var param_filter_resource = this.getParameter('filter_resource');
 		
 		// grab the features sys_id
 		var gr_feature = new GlideRecord("x_casus_reservatio_feature");
@@ -194,6 +213,11 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 		// grab all resources with this feature
 		var gr_collectResources = new GlideRecord("x_casus_reservatio_resource");
 		gr_collectResources.addQuery("features","CONTAINS",feature_sys_id); // glidelist is a list of sys_ids
+		if( param_filter_resource != '' ) {
+			gr_collectResources.addQuery("number","IN",param_filter_resource); // restrict to resource	
+		}
+
+
 		gr_collectResources.query();
 		var resource_list_sys_ids = "";
 		while( gr_collectResources.next() ) {
@@ -333,7 +357,7 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
         <sys_created_on>2017-03-22 21:43:12</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>5a638d2f0f69b60012e4348ce1050e67</sys_id>
-        <sys_mod_count>139</sys_mod_count>
+        <sys_mod_count>154</sys_mod_count>
         <sys_name>ReservationUtils</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy>read</sys_policy>
@@ -341,6 +365,6 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_script_include_5a638d2f0f69b60012e4348ce1050e67</sys_update_name>
         <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-05-23 16:43:04</sys_updated_on>
+        <sys_updated_on>2017-06-21 20:45:27</sys_updated_on>
     </sys_script_include>
 </record_update>
