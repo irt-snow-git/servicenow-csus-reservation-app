@@ -21,7 +21,7 @@
         <sys_class_name>sys_db_object</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-03-20 20:56:54</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>2b57ae320fe9760012e4348ce1050e82</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_name>Feature</sys_name>

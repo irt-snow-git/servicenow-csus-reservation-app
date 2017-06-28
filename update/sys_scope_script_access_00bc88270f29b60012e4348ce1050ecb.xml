@@ -48,7 +48,7 @@
         <sys_class_name>sys_scope_script_access</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-03-22 17:31:03</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>00bc88270f29b60012e4348ce1050ecb</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>SysUserList</sys_name>

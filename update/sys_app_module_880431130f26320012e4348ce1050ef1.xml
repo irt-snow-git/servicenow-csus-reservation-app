@@ -25,7 +25,7 @@
         <sys_class_name>sys_app_module</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-05-10 23:27:08</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_id>880431130f26320012e4348ce1050ef1</sys_id>
         <sys_mod_count>0</sys_mod_count>

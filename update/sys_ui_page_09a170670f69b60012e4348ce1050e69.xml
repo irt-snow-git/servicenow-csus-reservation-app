@@ -121,7 +121,7 @@
         <sys_class_name>sys_ui_page</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-03-22 20:14:24</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>09a170670f69b60012e4348ce1050e69</sys_id>
         <sys_mod_count>308</sys_mod_count>
         <sys_name>reserve</sys_name>

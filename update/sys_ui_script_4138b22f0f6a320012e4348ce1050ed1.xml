@@ -193,7 +193,7 @@ myApp.controller('SchedCtrl', ['$scope', '$http' , '$sce' , function( $scope, $h
         <sys_class_name>sys_ui_script</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-05-11 23:06:33</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>4138b22f0f6a320012e4348ce1050ed1</sys_id>
         <sys_mod_count>144</sys_mod_count>
         <sys_name>x_casus_reservatio.app_angular_schedule</sys_name>

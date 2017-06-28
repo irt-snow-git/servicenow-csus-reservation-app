@@ -7,7 +7,7 @@
         <sys_class_name>sys_scope_privilege</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-03-23 23:12:38</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>357466b76fe1f600ad6cd4a21c3ee47f</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>sys_ui_script</sys_name>

@@ -69,7 +69,7 @@
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-05-01 21:44:07</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_id>d6848b180f623a4012e4348ce1050e54</sys_id>
         <sys_mod_count>33</sys_mod_count>

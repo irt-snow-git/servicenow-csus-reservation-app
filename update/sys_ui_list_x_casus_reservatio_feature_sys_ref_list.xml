@@ -44,7 +44,7 @@
             <sys_class_name>sys_ui_list</sys_class_name>
             <sys_created_by>millsm</sys_created_by>
             <sys_created_on>2017-03-27 23:12:49</sys_created_on>
-            <sys_customer_update>true</sys_customer_update>
+            <sys_customer_update>false</sys_customer_update>
             <sys_domain>global</sys_domain>
             <sys_id>13da4f896ffd3a00ad6cd4a21c3ee4e3</sys_id>
             <sys_mod_count>0</sys_mod_count>

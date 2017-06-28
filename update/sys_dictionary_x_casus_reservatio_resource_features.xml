@@ -51,7 +51,7 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-04-25 23:16:18</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>f0a1a42a6f127640ad6cd4a21c3ee432</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Features</sys_name>

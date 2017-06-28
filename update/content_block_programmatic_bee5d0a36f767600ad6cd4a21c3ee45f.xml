@@ -121,7 +121,7 @@
         <sys_class_name>content_block_programmatic</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-05-23 21:30:45</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>bee5d0a36f767600ad6cd4a21c3ee45f</sys_id>
         <sys_mod_count>7</sys_mod_count>
         <sys_name>CSUS Reservation</sys_name>

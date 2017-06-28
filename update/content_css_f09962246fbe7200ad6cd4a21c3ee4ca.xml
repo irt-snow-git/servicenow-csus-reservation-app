@@ -622,7 +622,7 @@ margin:0; padding:0;&#13;
         <sys_class_name>content_css</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-05-15 00:33:35</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>f09962246fbe7200ad6cd4a21c3ee4ca</sys_id>
         <sys_mod_count>19</sys_mod_count>
         <sys_name>schedule</sys_name>

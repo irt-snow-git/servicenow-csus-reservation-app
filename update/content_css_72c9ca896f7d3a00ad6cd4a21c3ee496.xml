@@ -712,7 +712,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.focus {&#1
         <sys_class_name>content_css</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-03-27 18:29:06</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>72c9ca896f7d3a00ad6cd4a21c3ee496</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>bootstrap-datepicker3.standalone</sys_name>
