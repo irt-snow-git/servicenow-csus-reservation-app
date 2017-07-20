@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="start" label="Start" language="en" table="z_x_casus_reservatio_reservation">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>start</element>
+            <help/>
+            <hint/>
+            <label>Start</label>
+            <language>en</language>
+            <name>z_x_casus_reservatio_reservation</name>
+            <plural>Starts</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>millsm</sys_created_by>
+            <sys_created_on>2017-07-07 18:35:56</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>31ad9ff96f77f240ad6cd4a21c3ee4b0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Start</sys_name>
+            <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
+            <sys_update_name>sys_documentation_z_x_casus_reservatio_reservation_start_en</sys_update_name>
+            <sys_updated_by>millsm</sys_updated_by>
+            <sys_updated_on>2017-07-07 18:35:56</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

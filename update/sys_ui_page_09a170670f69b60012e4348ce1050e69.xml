@@ -47,7 +47,7 @@
 				<div class="panel-body" >
 					<div class="list-group scroll-list">
 						
-			<div ng-repeat="f in features" class="list-group-item menuSubject" ng-click="processReservation || clickFeature(f.number)" ng-class="{active: f.number === feature_id , hidden: hideOthers == true ${AND} f.number != feature_id }">
+			<div ng-repeat="f in features | orderBy : order" class="list-group-item menuSubject" ng-click="processReservation || clickFeature(f.number)" ng-class="{active: f.number === feature_id , hidden: hideOthers == true ${AND} f.number != feature_id }">
 				<h4 class="list-group-item-heading">{{f.name}}</h4>
 				<p class="list-group-item-text">{{f.description}}</p>
 			</div>
@@ -121,9 +121,9 @@
         <sys_class_name>sys_ui_page</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-03-22 20:14:24</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
+        <sys_customer_update>true</sys_customer_update>
         <sys_id>09a170670f69b60012e4348ce1050e69</sys_id>
-        <sys_mod_count>308</sys_mod_count>
+        <sys_mod_count>317</sys_mod_count>
         <sys_name>reserve</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy/>
@@ -131,6 +131,6 @@
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_ui_page_09a170670f69b60012e4348ce1050e69</sys_update_name>
         <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-06-21 04:22:20</sys_updated_on>
+        <sys_updated_on>2017-07-19 18:02:33</sys_updated_on>
     </sys_ui_page>
 </record_update>

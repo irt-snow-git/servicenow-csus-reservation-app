@@ -4,12 +4,12 @@
         <active>true</active>
         <condition/>
         <conditional>false</conditional>
-        <name>Update Availability Hourly</name>
+        <name>Update Availability nightly</name>
         <run_as display_value="Matthew Mills">813700ad0a0a3c9e01ec5a478f5504fc</run_as>
         <run_as_tz/>
         <run_dayofmonth>1</run_dayofmonth>
         <run_dayofweek>1</run_dayofweek>
-        <run_period>1970-01-01 01:00:00</run_period>
+        <run_period>1970-01-02 00:00:00</run_period>
         <run_start>2017-05-10 19:00:00</run_start>
         <run_time>1970-01-01 08:00:00</run_time>
         <run_type>periodically</run_type>
@@ -25,17 +25,17 @@
         <sys_class_name>sysauto_script</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-05-10 20:46:16</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
+        <sys_customer_update>true</sys_customer_update>
         <sys_id>434e49170fe2320012e4348ce1050ef6</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>Update Availability Hourly</sys_name>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Update Availability nightly</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sysauto_script_434e49170fe2320012e4348ce1050ef6</sys_update_name>
         <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-05-10 20:46:16</sys_updated_on>
+        <sys_updated_on>2017-07-19 17:42:25</sys_updated_on>
         <upgrade_safe>false</upgrade_safe>
     </sysauto_script>
 </record_update>

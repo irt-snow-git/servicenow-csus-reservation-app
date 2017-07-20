@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_user_role_contains">
+    <sys_user_role_contains action="INSERT_OR_UPDATE">
+        <contains display_value="Reservation_Resource" name="Reservation_Resource">d7c3de330ff7764012e4348ce1050ec8</contains>
+        <role display_value="Reservation_Manager" name="Reservation_Manager">ce05da730ff7764012e4348ce1050efb</role>
+        <sys_class_name>sys_user_role_contains</sys_class_name>
+        <sys_created_by>millsm</sys_created_by>
+        <sys_created_on>2017-07-13 18:29:53</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>a7c5d2b30ff7764012e4348ce1050e76</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Reservation_Resource.Reservation_Manager</sys_name>
+        <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
+        <sys_update_name>sys_user_role_contains_a7c5d2b30ff7764012e4348ce1050e76</sys_update_name>
+        <sys_updated_by>millsm</sys_updated_by>
+        <sys_updated_on>2017-07-13 18:29:53</sys_updated_on>
+    </sys_user_role_contains>
+</record_update>

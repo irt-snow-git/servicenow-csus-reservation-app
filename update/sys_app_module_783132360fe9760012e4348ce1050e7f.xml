@@ -15,20 +15,20 @@
         <mobile_title>Resources</mobile_title>
         <mobile_view_name>Mobile</mobile_view_name>
         <name>x_casus_reservatio_resource</name>
-        <order/>
+        <order>11000</order>
         <override_menu_roles>false</override_menu_roles>
         <query/>
         <report/>
-        <roles>x_casus_reservatio_resource_user</roles>
+        <roles>Reservation_Manager</roles>
         <survey/>
         <survey_overwrite>true</survey_overwrite>
         <sys_class_name>sys_app_module</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-03-20 21:34:22</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
+        <sys_customer_update>true</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_id>783132360fe9760012e4348ce1050e7f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>Resources</sys_name>
         <sys_overrides/>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
@@ -37,7 +37,7 @@
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_app_module_783132360fe9760012e4348ce1050e7f</sys_update_name>
         <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-03-20 21:34:22</sys_updated_on>
+        <sys_updated_on>2017-07-13 18:41:08</sys_updated_on>
         <timeline_page/>
         <title>Resources</title>
         <u_basic_module/>

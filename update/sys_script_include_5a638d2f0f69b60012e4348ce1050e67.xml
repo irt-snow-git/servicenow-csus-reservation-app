@@ -9,6 +9,28 @@
         <name>ReservationUtils</name>
         <script><![CDATA[var ReservationUtils = Class.create();
 ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	getAllReservations: function() {
+		// used by calendar initalization
+		var gr_reservations = new GlideRecord("x_casus_reservatio_reservation");
+		gr_reservations.query();
+		var list = [];
+		
+		while( gr_reservations.next() ) {
+			var start = new GlideDateTime(gr_reservations.start);
+			var end = new GlideDateTime(gr_reservations.end);
+			list.push( {
+				id: gr_reservations.sys_id+'', 
+				number: gr_reservations.number+'', 
+				text: gr_reservations.feature.name+'' ,
+				customer: gr_reservations.customer.getDisplayValue() ,
+				resource: gr_reservations.resource.getDisplayValue() ,
+			    start_date: start.getNumericValue(),
+			    end_date: end.getNumericValue()
+			} );
+		}
+		return new global.JSON().encodeArray(list);
+	},
+	
 	getReservations: function () {
 		// pretty date format
 		var monthNames = [
@@ -95,6 +117,7 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 
 		var features = new GlideRecord("x_casus_reservatio_feature");
 		features.addQuery("type","CONTAINS",param_feature_type);
+		features.orderBy("order");
 		if( param_feature != '' ){
 			features.addQuery("number","IN",param_feature);	
 		}
@@ -108,6 +131,7 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 				name : features.name+'' ,
 				description : features.description+'' ,
 				number : features.number+'' ,
+				order : features.order+'' ,
 				sys_id : features.sys_id+'' 
 			} );
 		}
@@ -163,6 +187,8 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 			// gr_collectTimes.addQuery('reservation','=','');
 			gr_collectTimes.addQuery('resource', gr_collectResources.sys_id ) ;
 			gr_collectTimes.addQuery('date','=',param_myDate);
+			var now = new GlideDateTime();
+			gr_collectTimes.addQuery('start','>',now.toString());
 			gr_collectTimes.orderBy('start');
 			gr_collectTimes.query();
 			
@@ -322,8 +348,10 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 				   // we got a match. make reservation
 					var gr_reserve = new GlideRecord("x_casus_reservatio_reservation");
 					gr_reserve.initialize();
+					gr_reserve.active = true;
 					gr_reserve.customer = gs.getUserID();
 					gr_reserve.resource = gr_avail.resource;
+					gr_reserve.assigned_to = gr_avail.resource.user;
 					gr_reserve.feature = feature_sys_id;
 					gr_reserve.start = startDateTime;
 					gr_reserve.end = endDateTime;
@@ -355,9 +383,9 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-03-22 21:43:12</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
+        <sys_customer_update>true</sys_customer_update>
         <sys_id>5a638d2f0f69b60012e4348ce1050e67</sys_id>
-        <sys_mod_count>154</sys_mod_count>
+        <sys_mod_count>187</sys_mod_count>
         <sys_name>ReservationUtils</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy>read</sys_policy>
@@ -365,6 +393,6 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_script_include_5a638d2f0f69b60012e4348ce1050e67</sys_update_name>
         <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-06-21 20:45:27</sys_updated_on>
+        <sys_updated_on>2017-07-19 18:07:38</sys_updated_on>
     </sys_script_include>
 </record_update>

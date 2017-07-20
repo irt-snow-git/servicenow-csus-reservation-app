@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
     <element label="Availability" max_length="40" name="x_casus_reservatio_availability" type="collection">
-        <element label="Date" max_length="40" name="date" type="string"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;      var gdt = new GlideDateTime( current.start ).getLocalDate();&#13;&#10;if( gdt != null ) {&#13;&#10;&#9;return gdt.getByFormat(&quot;MMMM dd, yyyy&quot;) +'';  // return the calculated value&#13;&#10;} else {&#13;&#10;return &quot;error&quot;;&#13;&#10;}&#13;&#10;})(current);" label="Date" max_length="40" name="date" type="string"/>
         <element label="Reservation" max_length="32" name="reservation" reference="x_casus_reservatio_reservation" type="reference"/>
         <element display="true" label="Resource" max_length="32" name="resource" reference="x_casus_reservatio_resource" type="reference"/>
         <element label="Start" max_length="40" name="start" type="glide_date_time"/>
-        <element label="Time" max_length="40" name="time" type="string"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;      var gdt = new GlideDateTime( current.start).getLocalTime();&#13;&#10;if( gdt != null ) {&#13;&#10;&#9;return gdt.getByFormat(&quot;h:mm a&quot;) +'';  // return the calculated value&#13;&#10;} else {&#13;&#10;return &quot;error&quot;;&#13;&#10;}&#13;&#10;})(current);" label="Time" max_length="40" name="time" type="string"/>
         <index name="index">
             <element name="resource"/>
         </index>

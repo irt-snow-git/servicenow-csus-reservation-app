@@ -92,7 +92,7 @@ myApp.controller('ReserveCtrl', ['$scope', '$http' , '$sce' , '$location',  func
 		$scope.avail_times = "";
 		$scope.avail_dates = "";
 	
-	
+
 		$scope.listFeatures = function( myFeature ) {
 			var ga = new GlideAjax('ReservationUtils');
 			ga.addParam('sysparm_name' , 'getFeatures');
@@ -241,9 +241,9 @@ myApp.controller('ReserveCtrl', ['$scope', '$http' , '$sce' , '$location',  func
         <sys_class_name>sys_ui_script</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-03-22 21:26:11</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
+        <sys_customer_update>true</sys_customer_update>
         <sys_id>521245ab0f69b60012e4348ce1050efe</sys_id>
-        <sys_mod_count>193</sys_mod_count>
+        <sys_mod_count>203</sys_mod_count>
         <sys_name>x_casus_reservatio.app_angular_reserve</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy/>
@@ -251,7 +251,7 @@ myApp.controller('ReserveCtrl', ['$scope', '$http' , '$sce' , '$location',  func
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_ui_script_521245ab0f69b60012e4348ce1050efe</sys_update_name>
         <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-06-21 20:41:53</sys_updated_on>
+        <sys_updated_on>2017-07-19 18:04:03</sys_updated_on>
         <use_scoped_format>false</use_scoped_format>
     </sys_ui_script>
 </record_update>

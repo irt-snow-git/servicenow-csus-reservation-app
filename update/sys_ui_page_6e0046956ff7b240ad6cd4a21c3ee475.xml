@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script><![CDATA[function show_minical(){
+    if (scheduler.isCalendarVisible()){
+        scheduler.destroyCalendar();
+    } else {
+        scheduler.renderCalendar({
+            position:"dhx_minical_icon",
+            date:scheduler._date,
+            navigation:true,
+            handler:function(date,calendar){
+                scheduler.setCurrentView(date);
+                scheduler.destroyCalendar()
+            }
+        });
+    }
+}]]></client_script>
+        <description>Event calendar </description>
+        <direct>false</direct>
+        <endpoint>x_casus_reservatio_calendar.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+	<base href="/" />
+<link rel="stylesheet" type="text/css" href="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler_flat.css" />
+
+<j:if test="${!gs.getSession().isLoggedIn()}">
+	<script>
+		window.location = "/nav_to.do?uri="+ window.location.pathname + window.location.search;
+	</script>	
+</j:if>
+<j:if test="${gs.getSession().isLoggedIn()}">
+   <!-- Import AngularJS Library -->
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.17/angular.min.js"  />   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.17/angular-sanitize.min.js"  />
+	<script src="https://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.js"></script>
+	<script src="https://cdn.dhtmlx.com/scheduler/edge/ext/dhtmlxscheduler_agenda_view.js" ></script>
+	<script src="https://cdn.dhtmlx.com/scheduler/edge/ext/dhtmlxscheduler_minical.js" ></script>
+	<script src="https://cdn.dhtmlx.com/scheduler/edge/ext/dhtmlxscheduler_year_view.js" ></script>
+   <g:requires name="service.sn-glideAjax.jsdbx" />
+   <!-- Import my UI Script - get updated timestamp to invalidate cache if script changes -->
+   <g2:evaluate var="jvar_stamp">var gr = new GlideRecord('sys_ui_script');  
+    gr.get("9b8346956ff7b240ad6cd4a21c3ee4d7");
+    gr.getValue('sys_updated_on');</g2:evaluate>
+   <g:requires name="x_casus_reservatio.app_angular_calendar.jsdbx?$[jvar_stamp]" /> 
+   <!-- The User Interface -->
+	<div ng-app="schedulerApp"><div ng-controller="MainSchedulerCtrl">
+		<input type="text" class="form-control" ng-model="search" placeholder="Event Search" />
+	<div dhx-scheduler="dhx-scheduler" data="events | filter:search" data-ng-init="init()" style="height:800px; width:100%;">
+		
+        <div class="dhx_cal_prev_button"></div>
+        <div class="dhx_cal_next_button"></div>
+        <div class="dhx_cal_today_button"></div>
+		<div class="dhx_cal_tab" name="agenda_tab"></div>
+		<div class="dhx_cal_tab" name="year_tab"></div>
+		<div class="dhx_minical_icon" id="dhx_minical_icon" 
+    onclick="show_minical()"></div>
+        <div class="dhx_cal_date"></div>
+		
+        <div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>
+        <div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>
+        <div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>
+<div dhx-template="event_bar_text">
+   <strong>{{event.number}}</strong>: {{event.customer}} - {{event.text | uppercase}} ({{event.resource}})
+</div>
+<div dhx-template="event_text">
+   <strong>{{event.number}}</strong>:  {{event.customer}} - {{event.text | uppercase}} ({{event.resource}})
+</div>
+<div dhx-template="agenda_text">
+   <strong>{{event.number}}</strong>:  {{event.customer}} - {{event.text | uppercase}} ({{event.resource}})
+</div>
+    </div>
+	</div>
+	</div>
+</j:if>
+</j:jelly>]]></html>
+        <name>calendar</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>millsm</sys_created_by>
+        <sys_created_on>2017-07-05 22:32:48</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>6e0046956ff7b240ad6cd4a21c3ee475</sys_id>
+        <sys_mod_count>50</sys_mod_count>
+        <sys_name>calendar</sys_name>
+        <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
+        <sys_update_name>sys_ui_page_6e0046956ff7b240ad6cd4a21c3ee475</sys_update_name>
+        <sys_updated_by>millsm</sys_updated_by>
+        <sys_updated_on>2017-07-14 16:39:32</sys_updated_on>
+    </sys_ui_page>
+</record_update>

@@ -58,10 +58,10 @@
             <sum>false</sum>
             <sys_class_name>sys_ui_list</sys_class_name>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-03-22 16:48:36</sys_created_on>
-            <sys_customer_update>false</sys_customer_update>
+            <sys_created_on>2017-07-14 18:51:56</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
             <sys_domain>global</sys_domain>
-            <sys_id>8af204230f29b60012e4348ce1050e2d</sys_id>
+            <sys_id>d47423c86fc48740ad6cd4a21c3ee4c9</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>x_casus_reservatio_availability</sys_name>
             <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
@@ -70,8 +70,8 @@
             <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
             <sys_update_name>sys_ui_list_x_casus_reservatio_availability_null</sys_update_name>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-03-22 16:48:36</sys_updated_on>
-            <sys_user/>
+            <sys_updated_on>2017-07-14 18:51:56</sys_updated_on>
+            <sys_user display_value="Matthew Mills">813700ad0a0a3c9e01ec5a478f5504fc</sys_user>
             <view display_value="Default view" name="NULL">Default view</view>
             <view_name/>
         </sys_ui_list>

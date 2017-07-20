@@ -11,25 +11,81 @@
 ReservationAvailabilitySetup.prototype = {
     initialize: function() {
     },
+	markReservation: function( reservation ) {
+		// mark the availability for the reservation being made
+//		gs.addInfoMessage('Marking reservation step 1');
+		var gr_avail = new GlideRecord("x_casus_reservatio_availability");
+		gr_avail.addQuery("resource" , reservation.resource );
+		gr_avail.addQuery("start" , ">=" , reservation.start );
+		gr_avail.addQuery("start" , "<" , reservation.end );
+		gr_avail.addNullQuery("reservation");
+		gr_avail.query();
+//		gs.addInfoMessage("Lookup found " + gr_avail.getRowCount() + " slots");
+		// mark these reserved
+		while( gr_avail.next()) {
+			gr_avail.reservation = reservation.sys_id ;
+			gr_avail.update();
+		}
+//		gs.addInfoMessage("Done updating");
+
+
+	},
+	removeReservation: function ( reservation ) {
+//		gs.addInfoMessage("remove reservation");
+		// grab resources schedule
+		var i_timeschedule = new GlideSchedule( reservation.resource.schedule.sys_id ); // grab the resources schedule
+		
+		var gr_avail = new GlideRecord("x_casus_reservatio_availability");
+		gr_avail.addQuery("resource" , reservation.resource );
+		gr_avail.addQuery("reservation" , reservation.sys_id );
+		gr_avail.query();
+//		gs.addInfoMessage("Lookup found " + gr_avail.getRowCount() + " slots");
+		// either free up or remove availability
+		while( gr_avail.next()) {
+			var i_timeblock_start = new GlideDateTime(gr_avail.start);
+			if( i_timeschedule.isInSchedule( i_timeblock_start ) ) {
+				gr_avail.reservation = null;
+				gr_avail.update();
+//				gs.addInfoMessage("updating avail slots");
+			} else {
+				gr_avail.deleteRecord();
+//				gs.addInfoMessage("deleting avail slots");
+			}
+		}
+//		gs.addInfoMessage("Done updating");
+
+	},
+	changeReservation: function ( reservation ) {
+//		gs.addInfoMessage("change reservation");
+		this.removeReservation(reservation);
+		this.markReservation(reservation);
+	
+	},
 	resetAvailability: function( resource ) {
+	// schedule for the resource has changed. reset all of the availability
+//		gs.addInfoMessage("Reset Availability Run " + resource.number );
 		gs.debug("step 1 - Remove any existing availability for this resource"); 
-		var gr_reservation = new GlideRecord("x_casus_reservatio_availability");
-		gr_reservation.addQuery("resource" , resource.sys_id );
-		gr_reservation.addNullQuery("reservation");
-		gr_reservation.deleteMultiple();
+		var gr_avail = new GlideRecord("x_casus_reservatio_availability");
+		gr_avail.addQuery("resource" , resource.sys_id );
+		gr_avail.addNullQuery("reservation");
+		gr_avail.deleteMultiple();
 		
 		gs.debug("step 1.5 - Collect reservations and create a NOT AVAIL schedule"); 
-		var sched_busy = [];
-		var gr_reservation = new GlideRecord("x_casus_reservatio_availability");
+		var schedule_busy = new GlideSchedule();
+		if( schedule_busy == null ) { gs.addErrorMessage("cant create schedule")}
+		var dur = new GlideDuration();
+		if( dur == null ) { gs.addErrorMessage("cant create duration")}
+		var gr_reservation = new GlideRecord("x_casus_reservatio_reservation");
 		gr_reservation.addQuery("resource" , resource.sys_id );
-		gr_reservation.addNotNullQuery("reservation");
+		gr_reservation.addActiveQuery();
 		gr_reservation.query();
 		while( gr_reservation.next() ){
 			// add entry to the busy schedule
 			var startDateTime = new GlideDateTime( gr_reservation.start );
-			var endDateTime = new GlideDateTime( gr_reservation.start );
-			endDateTime.addSeconds( 14 * 60 ); // 15 minute block
-			sched_busy.push( {start: startDateTime , end: endDateTime });
+			var endDateTime = new GlideDateTime( gr_reservation.end );
+			// using schedule object
+			dur = GlideDateTime.subtract( endDateTime, startDateTime  );
+			schedule_busy.add( startDateTime , dur );			
 		}
 		
 		
@@ -38,34 +94,29 @@ ReservationAvailabilitySetup.prototype = {
 		var i_timeblock_end = new GlideDateTime(gs.hoursAgoStart(0) ); // Get Now for end time
 		i_timeblock_end.addSeconds( 14 * 60 ); // add span for 15 minute block
 		var i_timeblock_stop = new GlideDateTime(gs.hoursAgoEnd(0) ); // for stopping the while loop
-		 i_timeblock_stop.addDaysUTC( resource.forecast * 1 ); // Add the days to span out ### FIXME ### now uses glidelist for multiple features
-
-		// i_timeblock_stop.addDaysUTC( 14 ); // Add the days to span out
-
+		 i_timeblock_stop.addDaysUTC( resource.forecast * 1 ); // Add the days to span out 
 		var i_timeschedule = new GlideSchedule( resource.schedule.sys_id ); // grab the resources schedule
-		
+		var gr_availability = new GlideRecord("x_casus_reservatio_availability");
 		
 		// step 2.5 - Loop through durations and add availability
-		var busycheck = "AVAIL";
 		while( i_timeblock_start.compareTo( i_timeblock_stop ) < 1 ) {
 			
-			for( var i = 0 ; i < sched_busy.length ; i++ ) {
-				if( i_timeblock_start.compareTo( sched_busy[i].start ) >= 0 && i_timeblock_start.compareTo( sched_busy[i].end ) < 0 ) {
-					busycheck = "HIT";
-				}
-			}
-			if( i_timeschedule.isInSchedule( i_timeblock_start ) && i_timeschedule.isInSchedule(i_timeblock_end ) && busycheck != "HIT" ) {
+			if( i_timeschedule.isInSchedule( i_timeblock_start ) && i_timeschedule.isInSchedule(i_timeblock_end ) && !schedule_busy.isInSchedule( i_timeblock_start ) ) {
 				// only create entries that fit schedule that are not already reserved
-				var gr_availability = new GlideRecord("x_casus_reservatio_availability");
+				// var gr_availability = new GlideRecord("x_casus_reservatio_availability");
 				gr_availability.initialize();
 				gr_availability.start = i_timeblock_start;
 				gr_availability.resource = resource.sys_id;
+				gr_availability.setWorkflow(false);
 				gr_availability.insert();
+				i_timeblock_start.addSeconds( 15 * 60 ); // increment start time
+				i_timeblock_end.addSeconds( 15 * 60 ); // increment end time			
+			} else {
+				gs.addErrorMessage("When next is " + i_timeschedule.whenNext(i_timeblock_start) );
+				var skiptime = i_timeschedule.whenNext(i_timeblock_start);
+				i_timeblock_start.add( skiptime );
+				i_timeblock_end.add(skiptime ) ;
 			}
-			i_timeblock_start.addSeconds( 15 * 60 ); // increment start time
-			i_timeblock_end.addSeconds( 15 * 60 ); // increment end time
-		busycheck = "AVAIL";
-
 		}
 				gs.debug("resetAvailability - Step 2.5 complete ");
 	},
@@ -74,9 +125,9 @@ ReservationAvailabilitySetup.prototype = {
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>millsm</sys_created_by>
         <sys_created_on>2017-03-22 16:36:38</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
+        <sys_customer_update>true</sys_customer_update>
         <sys_id>5989739f0fe5b60012e4348ce1050e34</sys_id>
-        <sys_mod_count>19</sys_mod_count>
+        <sys_mod_count>63</sys_mod_count>
         <sys_name>ReservationAvailabilitySetup</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy>read</sys_policy>
@@ -84,6 +135,6 @@ ReservationAvailabilitySetup.prototype = {
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_script_include_5989739f0fe5b60012e4348ce1050e34</sys_update_name>
         <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-05-04 23:36:27</sys_updated_on>
+        <sys_updated_on>2017-07-19 17:33:41</sys_updated_on>
     </sys_script_include>
 </record_update>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_script">
+    <sys_ui_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description/>
+        <global>false</global>
+        <name>x_casus_reservatio.app_angular_calendar</name>
+        <script><![CDATA[var myApp =  angular.module('schedulerApp' ,[] );
+
+myApp.directive('dhxScheduler', function() {
+  return {
+    restrict: 'A',
+    scope: false,
+    transclude: true,
+    template:'<div class="dhx_cal_navline" ng-transclude></div><div class="dhx_cal_header"></div><div class="dhx_cal_data"></div>',
+
+    link:function ($scope, $element, $attrs, $controller){
+  //default state of the scheduler
+  if (!$scope.scheduler)
+    $scope.scheduler = {};
+  $scope.scheduler.mode = $scope.scheduler.mode || "week";
+  $scope.scheduler.date = $scope.scheduler.date || new Date();
+		
+  //watch data collection, reload on changes
+  $scope.$watch($attrs.data, function(collection){
+    scheduler.clearAll();
+    scheduler.parse(collection, "json");
+  }, true);
+
+  //watch mode and date
+  $scope.$watch(function(){
+    return $scope.scheduler.mode + $scope.scheduler.date.toString();
+  }, function(nv, ov) {
+    var mode = scheduler.getState();
+    if (nv.date != mode.date || nv.mode != mode.mode)
+      scheduler.setCurrentView($scope.scheduler.date, $scope.scheduler.mode);
+  }, true);
+
+  //size of scheduler
+  $scope.$watch(function() {
+    return $element[0].offsetWidth + "." + $element[0].offsetHeight;
+  }, function() {
+    scheduler.setCurrentView();
+  });
+
+  //styling for dhtmlx scheduler
+  $element.addClass("dhx_cal_container");
+
+		// other stuff
+		scheduler.attachEvent("onSchedulerReady", function(){
+var to_str = scheduler.date.date_to_str("%g:%i %A");
+scheduler.templates.hour_scale = function(date){
+return to_str(date);
+};
+});
+		
+  //init scheduler
+	
+  scheduler.config.readonly = true;
+  scheduler.config.start_on_monday = false;
+  scheduler.config.hour_size_px = 88;
+  scheduler.config.scroll_hour = 8 ; // scroll to 8 AM
+  scheduler.init($element[0], $scope.scheduler.date, $scope.scheduler.mode);
+		
+		scheduler.attachEvent("onClick", function (id, e){
+       //any custom logic here
+		var dialog = new GlideDialogForm("Reservation" , "x_casus_reservatio_reservation");
+		dialog.setSize(750,600);
+		dialog.setSysID( id );
+		dialog.render();					
+       return true;
+  });
+}
+  };
+});
+
+myApp.directive('dhxTemplate', ['$filter', function($filter){
+  scheduler.aFilter = $filter;
+
+  return {
+    restrict: 'AE',
+    terminal:true,
+
+    link:function($scope, $element, $attrs, $controller){
+      $element[0].style.display = 'none';
+
+      var template = $element[0].innerHTML;
+      template = template.replace(/[\r\n]/g,"").replace(/"/g, "\\\"").replace(/\{\{event\.([^\}]+)\}\}/g, function(match, prop){
+        if (prop.indexOf("|") != -1){
+          var parts = prop.split("|");
+          return "\"+scheduler.aFilter('"+(parts[1]).trim()+"')(event."+(parts[0]).trim()+")+\"";
+        }
+        return '"+event.'+prop+'+"';
+      });
+      var templateFunc = Function('sd','ed','event', 'return "'+template+'"');
+      scheduler.templates[$attrs.dhxTemplate] = templateFunc;
+    }
+  };
+}]);
+
+
+myApp.controller('MainSchedulerCtrl', function($scope , $interval) {
+  $scope.events = [ ];
+	
+	$scope.init = function ( ) {
+		var ga = new GlideAjax('ReservationUtils');
+		ga.addParam('sysparm_name' , 'getAllReservations');
+		ga.setScope('x_casus_reservatio');
+		ga.getXML(function(response) {
+			var answer = response.responseXML.documentElement.getAttribute('answer');
+			$scope.$apply(function () {
+				$scope.events = angular.fromJson(answer);
+			});	
+		});
+	};
+    $interval(function(){
+		$scope.init();
+	},60000);
+
+});
+
+
+
+
+]]></script>
+        <script_name>app_angular_calendar</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>millsm</sys_created_by>
+        <sys_created_on>2017-07-05 22:45:19</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>9b8346956ff7b240ad6cd4a21c3ee4d7</sys_id>
+        <sys_mod_count>56</sys_mod_count>
+        <sys_name>x_casus_reservatio.app_angular_calendar</sys_name>
+        <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
+        <sys_update_name>sys_ui_script_9b8346956ff7b240ad6cd4a21c3ee4d7</sys_update_name>
+        <sys_updated_by>millsm</sys_updated_by>
+        <sys_updated_on>2017-07-10 21:43:28</sys_updated_on>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+</record_update>

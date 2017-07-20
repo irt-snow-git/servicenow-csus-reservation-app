@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_list parent="x_casus_reservatio_resource" relationship="" sys_domain="global" table="x_casus_reservatio_reservation" version="2" view="">
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>x_casus_reservatio_reservation</name>
+            <parent>x_casus_reservatio_resource</parent>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>millsm</sys_created_by>
+            <sys_created_on>2017-07-10 16:56:52</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_id>80c3a6b26fbb3640ad6cd4a21c3ee4d1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_casus_reservatio_reservation</sys_name>
+            <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
+            <sys_update_name>sys_ui_list_x_casus_reservatio_reservation_x_casus_reservatio_resource_null</sys_update_name>
+            <sys_updated_by>millsm</sys_updated_by>
+            <sys_updated_on>2017-07-10 16:56:52</sys_updated_on>
+            <sys_user display_value="Matthew Mills">813700ad0a0a3c9e01ec5a478f5504fc</sys_user>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

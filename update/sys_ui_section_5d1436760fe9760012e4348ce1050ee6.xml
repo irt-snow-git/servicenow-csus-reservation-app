@@ -5,13 +5,13 @@
             <element>number</element>
             <position>0</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-05-05 17:02:11</sys_created_on>
-            <sys_id>920ce2e16f267a40ad6cd4a21c3ee464</sys_id>
+            <sys_created_on>2017-07-05 20:37:40</sys_created_on>
+            <sys_id>1556e1596fb7b240ad6cd4a21c3ee418</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">5d1436760fe9760012e4348ce1050ee6</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-05-05 17:02:11</sys_updated_on>
+            <sys_updated_on>2017-07-05 20:37:40</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -19,13 +19,13 @@
             <element>type</element>
             <position>1</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-05-05 17:02:11</sys_created_on>
-            <sys_id>160ce2e16f267a40ad6cd4a21c3ee464</sys_id>
+            <sys_created_on>2017-07-05 20:37:40</sys_created_on>
+            <sys_id>9556e1596fb7b240ad6cd4a21c3ee418</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">5d1436760fe9760012e4348ce1050ee6</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-05-05 17:02:11</sys_updated_on>
+            <sys_updated_on>2017-07-05 20:37:40</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -33,13 +33,13 @@
             <element>name</element>
             <position>2</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-05-05 17:02:11</sys_created_on>
-            <sys_id>960ce2e16f267a40ad6cd4a21c3ee464</sys_id>
+            <sys_created_on>2017-07-05 20:37:40</sys_created_on>
+            <sys_id>1956e1596fb7b240ad6cd4a21c3ee418</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">5d1436760fe9760012e4348ce1050ee6</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-05-05 17:02:11</sys_updated_on>
+            <sys_updated_on>2017-07-05 20:37:40</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -47,13 +47,13 @@
             <element>duration</element>
             <position>3</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-05-05 17:02:11</sys_created_on>
-            <sys_id>1a0ce2e16f267a40ad6cd4a21c3ee464</sys_id>
+            <sys_created_on>2017-07-05 20:37:40</sys_created_on>
+            <sys_id>9956e1596fb7b240ad6cd4a21c3ee418</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">5d1436760fe9760012e4348ce1050ee6</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-05-05 17:02:11</sys_updated_on>
+            <sys_updated_on>2017-07-05 20:37:40</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -61,27 +61,27 @@
             <element>.split</element>
             <position>4</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-05-05 17:02:11</sys_created_on>
-            <sys_id>9a0ce2e16f267a40ad6cd4a21c3ee464</sys_id>
+            <sys_created_on>2017-07-05 20:37:40</sys_created_on>
+            <sys_id>1d56e1596fb7b240ad6cd4a21c3ee418</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">5d1436760fe9760012e4348ce1050ee6</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-05-05 17:02:11</sys_updated_on>
+            <sys_updated_on>2017-07-05 20:37:40</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
-            <element>email_template</element>
+            <element>order</element>
             <position>5</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-05-05 17:02:11</sys_created_on>
-            <sys_id>1e0ce2e16f267a40ad6cd4a21c3ee464</sys_id>
+            <sys_created_on>2017-07-05 20:37:40</sys_created_on>
+            <sys_id>9d56e1596fb7b240ad6cd4a21c3ee418</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">5d1436760fe9760012e4348ce1050ee6</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-05-05 17:02:11</sys_updated_on>
+            <sys_updated_on>2017-07-05 20:37:40</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -89,13 +89,13 @@
             <element>confirmation</element>
             <position>6</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-05-05 17:02:11</sys_created_on>
-            <sys_id>9e0ce2e16f267a40ad6cd4a21c3ee464</sys_id>
+            <sys_created_on>2017-07-05 20:37:40</sys_created_on>
+            <sys_id>1156e1596fb7b240ad6cd4a21c3ee419</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">5d1436760fe9760012e4348ce1050ee6</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-05-05 17:02:11</sys_updated_on>
+            <sys_updated_on>2017-07-05 20:37:40</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -103,13 +103,13 @@
             <element>.end_split</element>
             <position>7</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-05-05 17:02:11</sys_created_on>
-            <sys_id>120ce2e16f267a40ad6cd4a21c3ee465</sys_id>
+            <sys_created_on>2017-07-05 20:37:40</sys_created_on>
+            <sys_id>9156e1596fb7b240ad6cd4a21c3ee419</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">5d1436760fe9760012e4348ce1050ee6</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-05-05 17:02:11</sys_updated_on>
+            <sys_updated_on>2017-07-05 20:37:40</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
@@ -117,13 +117,13 @@
             <element>description</element>
             <position>8</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-05-05 17:02:11</sys_created_on>
-            <sys_id>920ce2e16f267a40ad6cd4a21c3ee465</sys_id>
+            <sys_created_on>2017-07-05 20:37:40</sys_created_on>
+            <sys_id>1556e1596fb7b240ad6cd4a21c3ee419</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">5d1436760fe9760012e4348ce1050ee6</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-05-05 17:02:11</sys_updated_on>
+            <sys_updated_on>2017-07-05 20:37:40</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -131,13 +131,13 @@
             <element>details</element>
             <position>9</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-05-11 16:53:34</sys_created_on>
-            <sys_id>a293216b0fe6320012e4348ce1050edd</sys_id>
+            <sys_created_on>2017-07-05 20:37:40</sys_created_on>
+            <sys_id>9556e1596fb7b240ad6cd4a21c3ee419</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">5d1436760fe9760012e4348ce1050ee6</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-05-11 16:53:34</sys_updated_on>
+            <sys_updated_on>2017-07-05 20:37:40</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -145,13 +145,13 @@
             <element>bgcolor</element>
             <position>10</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-05-23 16:43:55</sys_created_on>
-            <sys_id>5274179b0f32760012e4348ce1050e80</sys_id>
+            <sys_created_on>2017-07-05 20:37:40</sys_created_on>
+            <sys_id>1956e1596fb7b240ad6cd4a21c3ee419</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">5d1436760fe9760012e4348ce1050ee6</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-05-23 16:43:55</sys_updated_on>
+            <sys_updated_on>2017-07-05 20:37:40</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -159,13 +159,13 @@
             <element>email</element>
             <position>11</position>
             <sys_created_by>millsm</sys_created_by>
-            <sys_created_on>2017-05-23 17:07:34</sys_created_on>
-            <sys_id>64e9d79f0f32760012e4348ce1050e0f</sys_id>
+            <sys_created_on>2017-07-05 20:37:40</sys_created_on>
+            <sys_id>9956e1596fb7b240ad6cd4a21c3ee419</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">5d1436760fe9760012e4348ce1050ee6</sys_ui_section>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-05-23 17:07:34</sys_updated_on>
+            <sys_updated_on>2017-07-05 20:37:40</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -180,7 +180,7 @@
             <sys_customer_update>false</sys_customer_update>
             <sys_domain>global</sys_domain>
             <sys_id>5d1436760fe9760012e4348ce1050ee6</sys_id>
-            <sys_mod_count>0</sys_mod_count>
+            <sys_mod_count>2</sys_mod_count>
             <sys_name>x_casus_reservatio_feature</sys_name>
             <sys_overrides display_value="">global</sys_overrides>
             <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
@@ -189,7 +189,7 @@
             <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
             <sys_update_name>sys_ui_section_5d1436760fe9760012e4348ce1050ee6</sys_update_name>
             <sys_updated_by>millsm</sys_updated_by>
-            <sys_updated_on>2017-03-20 21:46:58</sys_updated_on>
+            <sys_updated_on>2017-07-05 20:37:40</sys_updated_on>
             <sys_user/>
             <title>true</title>
             <view display_value="Default view" name="NULL">Default view</view>
