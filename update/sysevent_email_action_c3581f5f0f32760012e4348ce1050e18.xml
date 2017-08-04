@@ -27,11 +27,11 @@
         <list_field/>
         <mandatory>false</mandatory>
         <message/>
-        <message_html><![CDATA[<p>${feature.email}</p>
+        <message_html><![CDATA[<p>${mail_script:format_reservation_subject}</p>
+<p>${feature.email}</p>
+<p>${mail_script:print_reservation_specific_info}</p>
 <hr />
-<p>${mail_script:print_reservation_portal_link}</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>]]></message_html>
+<p>${mail_script:print_reservation_portal_link}</p>]]></message_html>
         <message_list/>
         <message_text/>
         <name>Reservation Confirmation</name>
@@ -53,7 +53,7 @@
         <sys_customer_update>true</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_id>c3581f5f0f32760012e4348ce1050e18</sys_id>
-        <sys_mod_count>17</sys_mod_count>
+        <sys_mod_count>19</sys_mod_count>
         <sys_name>Reservation Confirmation</sys_name>
         <sys_overrides/>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
@@ -62,7 +62,7 @@
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sysevent_email_action_c3581f5f0f32760012e4348ce1050e18</sys_update_name>
         <sys_updated_by>nicholasmyers</sys_updated_by>
-        <sys_updated_on>2017-06-28 16:39:39</sys_updated_on>
+        <sys_updated_on>2017-08-04 20:34:24</sys_updated_on>
         <sys_version>2</sys_version>
         <template/>
         <type>email</type>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>format_reservation_subject</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+          /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+          /* Optional GlideRecord */ event) {
+
+	// formats the subject of new reservation emails
+	var date = new GlideDateTime(current.start);
+	var day = date.getDayOfMonthLocalTime();
+	var dayOW = date.getDayOfWeekLocalTime();
+	var month = date.getMonthLocalTime();
+	var timeUnsplit = date.getLocalTime() + ""; //returns 1970-01-01 <time we want>
+	timeUnsplit = timeUnsplit.split(" ")[1]; //remove the date
+	var time = timeUnsplit.split(":"); //now give us hours, mins, and seconds in an array
+	
+	
+	//format date for display as a string
+	if(dayOW == 1)
+		dayOW = "Monday";
+	else if(dayOW == 2) 
+		dayOW = "Tuesday";
+	else if(dayOW == 3)
+		dayOW = "Wednesday";
+	else if(dayOW == 4)
+		dayOW = "Thursday";
+	else if(dayOW == 5)
+		dayOW = "Friday";
+	else if(dayOW == 6)
+		dayOW = "Saturday";
+	else if(dayOW == 7)
+		dayOW = "Sunday";
+	
+	if(month == 1)
+		month = 'January';
+	else if(month == 2)
+		month = 'February';
+	else if(month == 3)
+		month = 'March';
+	else if(month == 4)
+		month = 'April';
+	else if(month == 5)
+		month = 'May';
+	else if(month == 6)
+		month = 'June';
+	else if(month == 7)
+		month = 'July';
+	else if(month == 8)
+		month = 'August';
+	else if(month == 9)
+		month = 'September';
+	else if(month == 10)
+		month = 'October';
+	else if(month == 11)
+		month = 'November';
+	else if(month == 12)
+		month = 'December';
+	
+	//format time in 12-hr
+	var hour = time[0];
+	var min = time[1];
+	var ampm;
+	
+	if(hour > 11) {
+		ampm = 'PM';
+	} else {
+		ampm = 'AM';
+	}
+	
+    if (hour > 12) {
+		hour -= 12;
+	}   
+	
+	time = hour + ":" + min + " " + ampm;
+	
+	//format return string with parsed data
+	var subjStr = current.feature.name + " Reservation: ";
+	subjStr += dayOW + ", " + month + " " + day + " ";
+	subjStr += "at " + time; 
+	
+	email.setSubject(subjStr);
+
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>nicholasmyers</sys_created_by>
+        <sys_created_on>2017-08-04 19:13:01</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>ec39a77e6fd84300ad6cd4a21c3ee49d</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>format_reservation_subject</sys_name>
+        <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
+        <sys_update_name>sys_script_email_ec39a77e6fd84300ad6cd4a21c3ee49d</sys_update_name>
+        <sys_updated_by>nicholasmyers</sys_updated_by>
+        <sys_updated_on>2017-08-04 19:57:15</sys_updated_on>
+    </sys_script_email>
+</record_update>
