@@ -253,12 +253,14 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 		var gr_collectDates = new GlideAggregate("x_casus_reservatio_availability");
 		gr_collectDates.addQuery('reservation','=','');
 		gr_collectDates.addQuery('resource','IN', resource_list_sys_ids ) ;
-		gr_collectDates.addQuery('date','!=','');
+		gr_collectDates.addNotNullQuery('date');
+		gr_collectDates.addQuery('start', '>=', new GlideDateTime()); //starts at or after today
 		gr_collectDates.addAggregate('count');
 		gr_collectDates.groupBy('date');
 		gr_collectDates.orderBy('start');
 
 		gr_collectDates.query();
+		
 		var list = [];
 		while( gr_collectDates.next() ) {
 			list.push( { 
@@ -385,14 +387,14 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
         <sys_created_on>2017-03-22 21:43:12</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>5a638d2f0f69b60012e4348ce1050e67</sys_id>
-        <sys_mod_count>187</sys_mod_count>
+        <sys_mod_count>192</sys_mod_count>
         <sys_name>ReservationUtils</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy>read</sys_policy>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_script_include_5a638d2f0f69b60012e4348ce1050e67</sys_update_name>
-        <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-07-19 18:07:38</sys_updated_on>
+        <sys_updated_by>nicholasmyers</sys_updated_by>
+        <sys_updated_on>2017-09-08 20:53:54</sys_updated_on>
     </sys_script_include>
 </record_update>
