@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_user_role">
+    <sys_user_role action="INSERT_OR_UPDATE">
+        <assignable_by/>
+        <can_delegate>true</can_delegate>
+        <description>Users who are able to view scheduled reservations on the calendar, but cannot make any changes.</description>
+        <encryption_context/>
+        <grantable>true</grantable>
+        <includes_roles/>
+        <name>x_casus_reservatio_calendar_viewer</name>
+        <suffix/>
+        <sys_class_name>sys_user_role</sys_class_name>
+        <sys_created_by>nicholasmyers</sys_created_by>
+        <sys_created_on>2017-10-03 21:03:26</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>261b01926fad0b00ad6cd4a21c3ee416</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_casus_reservatio_calendar_viewer</sys_name>
+        <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
+        <sys_update_name>sys_user_role_261b01926fad0b00ad6cd4a21c3ee416</sys_update_name>
+        <sys_updated_by>nicholasmyers</sys_updated_by>
+        <sys_updated_on>2017-10-03 21:03:26</sys_updated_on>
+    </sys_user_role>
+</record_update>
