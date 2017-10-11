@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
     <element extends="task" label="Reservation" max_length="40" name="x_casus_reservatio_reservation" sizeclass="143" text_index="true" type="collection">
+        <element label="Case" max_length="32" name="case" reference="x_casus_csm_case" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Confirmation" max_length="40" name="confirmation" type="string"/>
         <element label="Customer" max_length="32" name="customer" reference="sys_user" type="reference"/>
         <element label="End" max_length="40" name="end" type="glide_date_time"/>

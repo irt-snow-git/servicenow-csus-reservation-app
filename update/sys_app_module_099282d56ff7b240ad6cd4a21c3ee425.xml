@@ -16,7 +16,7 @@
         <mobile_view_name>Mobile</mobile_view_name>
         <name/>
         <order>2000</order>
-        <override_menu_roles>false</override_menu_roles>
+        <override_menu_roles>true</override_menu_roles>
         <query>x_casus_reservatio_calendar.do</query>
         <report/>
         <roles>Reservation_Resource,x_casus_reservatio_calendar_viewer</roles>
@@ -28,7 +28,7 @@
         <sys_customer_update>true</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_id>099282d56ff7b240ad6cd4a21c3ee425</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>View Calendar</sys_name>
         <sys_overrides/>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
@@ -37,7 +37,7 @@
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_app_module_099282d56ff7b240ad6cd4a21c3ee425</sys_update_name>
         <sys_updated_by>nicholasmyers</sys_updated_by>
-        <sys_updated_on>2017-10-03 21:04:01</sys_updated_on>
+        <sys_updated_on>2017-10-03 21:10:37</sys_updated_on>
         <timeline_page/>
         <title>View Calendar</title>
         <u_basic_module/>
