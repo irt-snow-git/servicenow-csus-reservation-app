@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sysevent_email_template">
+    <sysevent_email_template action="INSERT_OR_UPDATE">
+        <collection>x_casus_reservatio_reservation</collection>
+        <message/>
+        <message_html><![CDATA[<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">BEGIN:VCALENDAR&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">PRODID:-<span class="comment" style="color: #008200; font-size: 9pt !important; margin: 0px; border: 0px;">//Service-now.com//Outlook&nbsp;11.0&nbsp;MIMEDIR//EN</span><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">&nbsp;&nbsp;</span></span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">VERSION:<span class="number" style="color: green; font-size: 9pt !important; margin: 0px; border: 0px;">2.0</span><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">&nbsp;&nbsp;</span></span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">METHOD:REQUEST&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">BEGIN:VEVENT&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">ATTENDEE;ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:${resource}&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">ORGANIZER:MAILTO:servicedesk@csus.edu</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">LOCATION:IRT - ARC 2006</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">DTSTART:${start}&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">DTEND:${end}&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">UID:${sys_id}&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">DTSTAMP:${dtstamp}&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">DESCRIPTION:Click&nbsp;here&nbsp;to&nbsp;view&nbsp;the reservation:&nbsp;${task.URI_REF}&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">X-MICROSOFT-CDO-BUSYSTATUS:BUSY&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">X-MICROSOFT-DISALLOW-COUNTER:TRUE&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">X-SNSYSID:{$sys_id}&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">BEGIN:VALARM&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">TRIGGER:-PT15M&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">ACTION:DISPLAY&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">DESCRIPTION:Reminder&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">END:VALARM&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">END:VEVENT&nbsp;&nbsp;</span></p>
+<p><span style="color: black; font-size: 9pt !important; margin: 0px; border: 0px;">END:VCALENDAR</span></p>]]></message_html>
+        <message_list/>
+        <message_text/>
+        <name>Reservation Calendar Invite</name>
+        <sms_alternate/>
+        <subject>${feature} Reservation for ${customer}</subject>
+        <sys_class_name>sysevent_email_template</sys_class_name>
+        <sys_created_by>nicholasmyers</sys_created_by>
+        <sys_created_on>2017-11-17 00:55:08</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>1806e0640faec30012e4348ce1050e9c</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Reservation Calendar Invite</sys_name>
+        <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
+        <sys_update_name>sysevent_email_template_1806e0640faec30012e4348ce1050e9c</sys_update_name>
+        <sys_updated_by>nicholasmyers</sys_updated_by>
+        <sys_updated_on>2017-11-17 00:57:16</sys_updated_on>
+        <sys_version>2</sys_version>
+    </sysevent_email_template>
+</record_update>
