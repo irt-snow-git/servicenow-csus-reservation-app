@@ -33,6 +33,24 @@
 }
 .hidden { display:none; }
 .weak {color: #343d4799;}
+.red {color: #f95050;}
+
+	/* Special Rules for Mobile */
+@media only screen and (max-width: 800px) {
+	#mobile {display:block}
+	#desktop {display:none}
+}
+ 
+/* Special Rules for Tablets */
+	@media only screen and (min-width: 800px) {
+	#mobile {display:none}
+}
+ 
+/* Special Rules for Desktops */
+	@media only screen and (min-width: 800px) {
+	#mobile {display:none}
+}
+
 
 </style>
 	
@@ -75,7 +93,10 @@
 				
 			</div>
 			<div ng-if="feature_id==null" class="list-group-item menuSubject">
-				<h4 class="list-group-item-heading"><span class="fa fa-arrow-left"/>&#160;Please select a reservation type</h4>
+				<h4 class="list-group-item-heading"><span id="mobile" class="fa fa-arrow-up"/><span id="desktop" class="fa fa-arrow-left"/>&#160;Please select a reservation type</h4>
+			</div>
+			<div ng-if="feature_id!=null ${AMP}${AMP} !avail_dates.length" class="list-group-item menuSubject">
+				<h4 class="list-group-item-heading">No available reservation dates, please check again later.</h4>
 			</div>
 											
 				   </div>
@@ -97,11 +118,14 @@
 				<p class="list-group-item-text"></p>
 			</div>
 			<div ng-if="feature_id==null" class="list-group-item menuSubject">
-				<h4 class="list-group-item-heading"><span class="fa fa-arrow-left"/>&#160;Please select a reservation type</h4>
+				<h4 class="list-group-item-heading"><span id="mobile" class="fa fa-arrow-up"/><span id="desktop" class="fa fa-arrow-left"/>&#160;Please select a reservation type</h4>
 			</div> 
-			<div ng-if="feature_id!=null  ${AMP}${AMP} filter_date==''" class="list-group-item menuSubject">
-				<h4 class="list-group-item-heading"><span class="fa fa-arrow-left"/>&#160;Please select a date</h4>
-			</div> 
+			<div ng-if="feature_id!=null  ${AMP}${AMP} filter_date=='' ${AMP}${AMP} avail_dates.length" class="list-group-item menuSubject">
+				<h4 class="list-group-item-heading"><span id="mobile" class="fa fa-arrow-up"/><span id="desktop" class="fa fa-arrow-left"/>&#160;Please select a date</h4>
+			</div>
+			<div ng-if="feature_id!=null ${AMP}${AMP} !avail_dates.length" class="list-group-item menuSubject">
+				<h4 class="list-group-item-heading">No available reservation dates, please check again later.</h4>
+			</div>
 											
 				   </div>
                </div>
@@ -111,7 +135,7 @@
 	   </div>
 		  <div class="row"> <!-- Confirmation block -->
 			 <!--<div ng-class="{hidden: hideOthers == false}" class="col-md-12 full-height">-->
-			  <div ng-class="{hidden: hideOthers == true}" ng-hide="filter_time==''" class="col-md-12 full-height">
+			  <div ng-class="{hidden: hideOthers == true }" ng-hide="filter_time==''" class="col-md-12 full-height">
 				  <div class="form-group">
 					<label for="reservationComments">Please let us know what you would like help with<span class="weak">&#160;(required)</span></label> 
 					  <textarea name="reservationComments" class="form-control" ng-model="reservationComments" style="resize: vertical;"></textarea>
@@ -121,7 +145,7 @@
 			  </div>
 			  <div class="col-md-12 full-height">
 					 <button ng-class="{hidden: hideOthers == true}" class="pull-right" ng-disabled="filter_time==''" ng-click="processReservation || makeReservation()" >Make Reservation</button>
-				  	<p class="lead">{{processingInfo}}</p>
+				  	<p ng-class="getResultTextColor(reservationComments)" class="lead">{{processingInfo}}</p>
 				    <div class="panel-body" ng-bind-html="reservation_detail"></div>
 			  </div>
 		  </div>
@@ -135,7 +159,7 @@
         <sys_created_on>2017-05-23 21:30:45</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>bee5d0a36f767600ad6cd4a21c3ee45f</sys_id>
-        <sys_mod_count>61</sys_mod_count>
+        <sys_mod_count>78</sys_mod_count>
         <sys_name>CSUS Reservation</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy/>
@@ -143,7 +167,7 @@
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>content_block_programmatic_bee5d0a36f767600ad6cd4a21c3ee45f</sys_update_name>
         <sys_updated_by>nicholasmyers</sys_updated_by>
-        <sys_updated_on>2017-12-08 00:43:45</sys_updated_on>
+        <sys_updated_on>2017-12-08 22:22:37</sys_updated_on>
         <two_phase>false</two_phase>
     </content_block_programmatic>
 </record_update>
