@@ -109,7 +109,7 @@
 	   </div>
 		  <div class="row"> <!-- Confirmation block -->
 			 <!--<div ng-class="{hidden: hideOthers == false}" class="col-md-12 full-height">-->
-			  <div ng-hide="filter_time==''" class="col-md-12 full-height">
+			  <div ng-class="{hidden: hideOthers == true }" ng-hide="filter_time==''" class="col-md-12 full-height">
 				  <div class="form-group">
 					<label for="reservationComments">Please let us know what you would like help with<span class="weak">&#160;(required)</span></label> 
 					  <textarea name="reservationComments" class="form-control" ng-model="reservationComments" style="resize: vertical;"></textarea>
@@ -135,7 +135,7 @@
         <sys_created_on>2017-03-22 20:14:24</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>09a170670f69b60012e4348ce1050e69</sys_id>
-        <sys_mod_count>325</sys_mod_count>
+        <sys_mod_count>326</sys_mod_count>
         <sys_name>reserve</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy/>
@@ -143,6 +143,6 @@
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_ui_page_09a170670f69b60012e4348ce1050e69</sys_update_name>
         <sys_updated_by>nicholasmyers</sys_updated_by>
-        <sys_updated_on>2017-12-08 00:39:19</sys_updated_on>
+        <sys_updated_on>2017-12-08 00:43:15</sys_updated_on>
     </sys_ui_page>
 </record_update>
