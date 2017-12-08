@@ -303,6 +303,7 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 		var param_myFeature = this.getParameter('feature');
 		var param_myDate = this.getParameter('date');
 		var param_myTime = this.getParameter('time');
+		var param_myComment = this.getParameter('comment');
 		var result = this.newItem("result");
 		
 		// grab the features sys_id
@@ -357,6 +358,7 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 					gr_reserve.feature = feature_sys_id;
 					gr_reserve.start = startDateTime;
 					gr_reserve.end = endDateTime;
+					gr_reserve.notes = param_myComment;
 					gr_reserve.insert();
 					while( gr_check.next()){
 						gr_check.reservation = gr_reserve.sys_id;
@@ -365,6 +367,7 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 					result.setAttribute("reservation_info", "Reservation Number " + gr_reserve.number );
 					result.setAttribute("reservation_number",  gr_reserve.number );
 					result.setAttribute("reservation_detail",  gr_feature.details );
+					result.setAttribute("reservation_comment", gr_reserve.notes);
 					result.setAttribute("status", "SUCCESS");
 					found_span = true;
 				}
@@ -387,7 +390,7 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
         <sys_created_on>2017-03-22 21:43:12</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>5a638d2f0f69b60012e4348ce1050e67</sys_id>
-        <sys_mod_count>192</sys_mod_count>
+        <sys_mod_count>193</sys_mod_count>
         <sys_name>ReservationUtils</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy>read</sys_policy>
@@ -395,6 +398,6 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_script_include_5a638d2f0f69b60012e4348ce1050e67</sys_update_name>
         <sys_updated_by>nicholasmyers</sys_updated_by>
-        <sys_updated_on>2017-09-08 20:53:54</sys_updated_on>
+        <sys_updated_on>2017-12-07 22:17:38</sys_updated_on>
     </sys_script_include>
 </record_update>

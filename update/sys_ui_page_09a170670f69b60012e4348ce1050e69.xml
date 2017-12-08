@@ -19,10 +19,10 @@
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.17/angular.min.js"  />   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.17/angular-sanitize.min.js"  />	
    <g:requires name="service.sn-glideAjax.jsdbx" />
    <!-- Import my UI Script - get updated timestamp to invalidate cache if script changes -->
-   <g2:evaluate var="jvar_stamp">var gr = new GlideRecord('sys_ui_script');  
+   <g:evaluate var="jvar_stamp">var gr = new GlideRecord('sys_ui_script');  
     gr.get("521245ab0f69b60012e4348ce1050efe");
-    gr.getValue('sys_updated_on');</g2:evaluate>
-   <g:requires name="x_casus_reservatio.app_angular_reserve.jsdbx?$[jvar_stamp]" /> 
+    gr.getValue('sys_updated_on');</g:evaluate>
+   <g:requires name="x_casus_reservatio.app_angular_reserve.jsdbx?${jvar_stamp}" /> 
    <!-- The User Interface -->
 <style>
 .scroll-list {
@@ -30,6 +30,7 @@
   overflow-y: auto;
 }
 .hidden { display:none; }
+.weak {color: #343d4799;}
 
 </style>
 	
@@ -69,6 +70,10 @@
 			<div ng-repeat="d in avail_dates | orderBy:'start' | unique:'date' " class="list-group-item menuSubject" ng-click="processReservation || clickDate(d.date)"  ng-class="{active: d.date === filter_date , hidden: hideOthers == true ${AND} d.date != filter_date }">
 				<h4 class="list-group-item-heading">{{d.date}}</h4>
 				<p class="list-group-item-text">{{d.moreinfo}}</p>
+				
+			</div>
+			<div ng-if="feature_id==null" class="list-group-item menuSubject">
+				<h4 class="list-group-item-heading"><span class="fa fa-arrow-left"/>&#160;Please select a reservation type</h4>
 			</div>
 											
 				   </div>
@@ -89,6 +94,12 @@
 				<h4 class="list-group-item-heading">{{t.time}}</h4>
 				<p class="list-group-item-text"></p>
 			</div>
+			<div ng-if="feature_id==null" class="list-group-item menuSubject">
+				<h4 class="list-group-item-heading"><span class="fa fa-arrow-left"/>&#160;Please select a reservation type</h4>
+			</div> 
+			<div ng-if="feature_id!=null  ${AMP}${AMP} filter_date==''" class="list-group-item menuSubject">
+				<h4 class="list-group-item-heading"><span class="fa fa-arrow-left"/>&#160;Please select a date</h4>
+			</div> 
 											
 				   </div>
                </div>
@@ -97,18 +108,19 @@
 			 
 	   </div>
 		  <div class="row"> <!-- Confirmation block -->
+			 <!--<div ng-class="{hidden: hideOthers == false}" class="col-md-12 full-height">-->
+			  <div ng-hide="filter_time==''" class="col-md-12 full-height">
+				  <div class="form-group">
+					<label for="reservationComments">Please let us know what you would like help with<span class="weak">&#160;(required)</span></label> 
+					  <textarea name="reservationComments" class="form-control" ng-model="reservationComments" style="resize: vertical;"></textarea>
+				  </div>
+				  <!--<button ng-disabled="reservation_number==''" ng-click="addReservationComments()" >Add Comment</button> -->
+				  
+			  </div>
 			  <div class="col-md-12 full-height">
 					 <button ng-class="{hidden: hideOthers == true}" class="pull-right" ng-disabled="filter_time==''" ng-click="processReservation || makeReservation()" >Make Reservation</button>
 				  	<p class="lead">{{processingInfo}}</p>
 				    <div class="panel-body" ng-bind-html="reservation_detail"></div>
-			  </div>
-			  <div ng-class="{hidden: hideOthers == false}" class="col-md-12 full-height">
-				  <div class="form-group">
-					<label for="reservationComments">Add any comments for this reservation</label>
-					  <textarea name="reservationComments" class="form-control" ng-model="reservationComments"></textarea>
-				  </div>
-				  <button ng-disabled="reservation_number==''" ng-click="addReservationComments()" >Add Comment</button> 
-				  
 			  </div>
 		  </div>
 	</div>
@@ -123,14 +135,14 @@
         <sys_created_on>2017-03-22 20:14:24</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>09a170670f69b60012e4348ce1050e69</sys_id>
-        <sys_mod_count>317</sys_mod_count>
+        <sys_mod_count>325</sys_mod_count>
         <sys_name>reserve</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_ui_page_09a170670f69b60012e4348ce1050e69</sys_update_name>
-        <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-07-19 18:02:33</sys_updated_on>
+        <sys_updated_by>nicholasmyers</sys_updated_by>
+        <sys_updated_on>2017-12-08 00:39:19</sys_updated_on>
     </sys_ui_page>
 </record_update>

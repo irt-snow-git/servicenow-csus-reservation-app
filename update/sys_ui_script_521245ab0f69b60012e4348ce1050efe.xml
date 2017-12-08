@@ -203,40 +203,50 @@ myApp.controller('ReserveCtrl', ['$scope', '$http' , '$sce' , '$location',  func
 		};
 		$scope.makeReservation = function() {
 		 //  alert("boop");
-			// disabled items so they are not changed while making reservation
-			$scope.processReservation = true;
-			$scope.processingInfo = "Making the reservation";
 			
-			var ga = new GlideAjax('ReservationUtils');
-			ga.addParam('sysparm_name' , 'makeReservation');
-			ga.addParam('feature' , $scope.feature_id);
-			ga.addParam('date' , $scope.filter_date);
-			ga.addParam('time' , $scope.filter_time);
-			ga.setScope('x_casus_reservatio');
-			ga.getXML(function(response) {
-				
-				var result = response.responseXML.getElementsByTagName("result");
-				var answer = result[0].getAttribute("status");
-				var reservation_info = result[0].getAttribute("reservation_info");
-				var reservation_detail = result[0].getAttribute("reservation_detail");
-
-
-
-				if( answer == "FAILURE" ) {
-					$scope.processingInfo = "The reservation was NOT successful, pick another time. " + reservation_info;
-					$scope.processReservation = false;
-					// reset the selctions and try again
-					$scope.clickDate( $scope.filter_date );
-				} 				
-				if( answer == "SUCCESS" ) {
-					$scope.processingInfo = "The reservation has been made. " + reservation_info;
-					$scope.processReservation = true;
-					$scope.hideOthers = true;
-					$scope.reservation_detail = $sce.trustAsHtml(reservation_detail);
-					$scope.reservation_number = result[0].getAttribute("reservation_number");
-				}
+			//if no comments are added, or comments are only spaces (to get around the mandatory requirement)
+			//reject, make the user submit again
+			if($scope.reservationComments.trim().length == 0) {
+				$scope.processingInfo = "Please add reservation details before submitting.";
 				$scope.$apply();
-			});
+			} else {
+			
+				// disabled items so they are not changed while making reservation
+				$scope.processReservation = true;
+				$scope.processingInfo = "Making the reservation";
+
+				var ga = new GlideAjax('ReservationUtils');
+				ga.addParam('sysparm_name' , 'makeReservation');
+				ga.addParam('feature' , $scope.feature_id);
+				ga.addParam('date' , $scope.filter_date);
+				ga.addParam('time' , $scope.filter_time);
+				ga.addParam('comment', $scope.reservationComments);
+				ga.setScope('x_casus_reservatio');
+				ga.getXML(function(response) {
+
+					var result = response.responseXML.getElementsByTagName("result");
+					var answer = result[0].getAttribute("status");
+					var reservation_info = result[0].getAttribute("reservation_info");
+					var reservation_detail = result[0].getAttribute("reservation_detail");
+
+
+
+					if( answer == "FAILURE" ) {
+						$scope.processingInfo = "The reservation was NOT successful, pick another time. " + reservation_info;
+						$scope.processReservation = false;
+						// reset the selctions and try again
+						$scope.clickDate( $scope.filter_date );
+					} 				
+					if( answer == "SUCCESS" ) {
+						$scope.processingInfo = "The reservation has been made. " + reservation_info;
+						$scope.processReservation = true;
+						$scope.hideOthers = true;
+						$scope.reservation_detail = $sce.trustAsHtml(reservation_detail);
+						$scope.reservation_number = result[0].getAttribute("reservation_number");
+					}
+					$scope.$apply();
+				});
+			}
 		};
 } ] );]]></script>
         <script_name>app_angular_reserve</script_name>
@@ -245,7 +255,7 @@ myApp.controller('ReserveCtrl', ['$scope', '$http' , '$sce' , '$location',  func
         <sys_created_on>2017-03-22 21:26:11</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>521245ab0f69b60012e4348ce1050efe</sys_id>
-        <sys_mod_count>206</sys_mod_count>
+        <sys_mod_count>208</sys_mod_count>
         <sys_name>x_casus_reservatio.app_angular_reserve</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy/>
@@ -253,7 +263,7 @@ myApp.controller('ReserveCtrl', ['$scope', '$http' , '$sce' , '$location',  func
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_ui_script_521245ab0f69b60012e4348ce1050efe</sys_update_name>
         <sys_updated_by>nicholasmyers</sys_updated_by>
-        <sys_updated_on>2017-09-08 20:51:52</sys_updated_on>
+        <sys_updated_on>2017-12-07 23:09:39</sys_updated_on>
         <use_scoped_format>false</use_scoped_format>
     </sys_ui_script>
 </record_update>

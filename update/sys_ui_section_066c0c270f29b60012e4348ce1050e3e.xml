@@ -5,13 +5,13 @@
             <element>process_flow.xml</element>
             <position>0</position>
             <sys_created_by>nicholasmyers</sys_created_by>
-            <sys_created_on>2017-10-11 18:53:53</sys_created_on>
-            <sys_id>386a39346ff50f00ad6cd4a21c3ee4ff</sys_id>
+            <sys_created_on>2017-12-01 17:26:26</sys_created_on>
+            <sys_id>cd7f04190f36030012e4348ce1050e31</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter display_value="Process Flow">cf0f42a26f373640ad6cd4a21c3ee4d7</sys_ui_formatter>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_reservation" sys_domain="global" view="Default view">066c0c270f29b60012e4348ce1050e3e</sys_ui_section>
             <sys_updated_by>nicholasmyers</sys_updated_by>
-            <sys_updated_on>2017-10-11 18:53:53</sys_updated_on>
+            <sys_updated_on>2017-12-01 17:26:26</sys_updated_on>
             <sys_user/>
             <type>formatter</type>
         </sys_ui_element>
@@ -19,13 +19,13 @@
             <element>.begin_split</element>
             <position>1</position>
             <sys_created_by>nicholasmyers</sys_created_by>
-            <sys_created_on>2017-10-11 18:53:53</sys_created_on>
-            <sys_id>b86a39346ff50f00ad6cd4a21c3ee4ff</sys_id>
+            <sys_created_on>2017-12-01 17:26:26</sys_created_on>
+            <sys_id>417f04190f36030012e4348ce1050e32</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_reservation" sys_domain="global" view="Default view">066c0c270f29b60012e4348ce1050e3e</sys_ui_section>
             <sys_updated_by>nicholasmyers</sys_updated_by>
-            <sys_updated_on>2017-10-11 18:53:53</sys_updated_on>
+            <sys_updated_on>2017-12-01 17:26:26</sys_updated_on>
             <sys_user/>
             <type>.begin_split</type>
         </sys_ui_element>
@@ -33,13 +33,13 @@
             <element>number</element>
             <position>2</position>
             <sys_created_by>nicholasmyers</sys_created_by>
-            <sys_created_on>2017-10-11 18:53:53</sys_created_on>
-            <sys_id>3c6a39346ff50f00ad6cd4a21c3ee4ff</sys_id>
+            <sys_created_on>2017-12-01 17:26:26</sys_created_on>
+            <sys_id>c17f04190f36030012e4348ce1050e32</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_reservation" sys_domain="global" view="Default view">066c0c270f29b60012e4348ce1050e3e</sys_ui_section>
             <sys_updated_by>nicholasmyers</sys_updated_by>
-            <sys_updated_on>2017-10-11 18:53:53</sys_updated_on>
+            <sys_updated_on>2017-12-01 17:26:26</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -47,13 +47,13 @@
             <element>customer</element>
             <position>3</position>
             <sys_created_by>nicholasmyers</sys_created_by>
-            <sys_created_on>2017-10-11 18:53:53</sys_created_on>
-            <sys_id>bc6a39346ff50f00ad6cd4a21c3ee4ff</sys_id>
+            <sys_created_on>2017-12-01 17:26:26</sys_created_on>
+            <sys_id>457f04190f36030012e4348ce1050e32</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_reservation" sys_domain="global" view="Default view">066c0c270f29b60012e4348ce1050e3e</sys_ui_section>
             <sys_updated_by>nicholasmyers</sys_updated_by>
-            <sys_updated_on>2017-10-11 18:53:53</sys_updated_on>
+            <sys_updated_on>2017-12-01 17:26:26</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -61,13 +61,13 @@
             <element>start</element>
             <position>4</position>
             <sys_created_by>nicholasmyers</sys_created_by>
-            <sys_created_on>2017-10-11 18:53:53</sys_created_on>
-            <sys_id>306a79346ff50f00ad6cd4a21c3ee400</sys_id>
+            <sys_created_on>2017-12-01 17:26:26</sys_created_on>
+            <sys_id>c57f04190f36030012e4348ce1050e32</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_reservation" sys_domain="global" view="Default view">066c0c270f29b60012e4348ce1050e3e</sys_ui_section>
             <sys_updated_by>nicholasmyers</sys_updated_by>
-            <sys_updated_on>2017-10-11 18:53:53</sys_updated_on>
+            <sys_updated_on>2017-12-01 17:26:26</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -75,13 +75,13 @@
             <element>assigned_to</element>
             <position>5</position>
             <sys_created_by>nicholasmyers</sys_created_by>
-            <sys_created_on>2017-10-11 18:53:53</sys_created_on>
-            <sys_id>b06a79346ff50f00ad6cd4a21c3ee400</sys_id>
+            <sys_created_on>2017-12-01 17:26:26</sys_created_on>
+            <sys_id>497f04190f36030012e4348ce1050e32</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_reservation" sys_domain="global" view="Default view">066c0c270f29b60012e4348ce1050e3e</sys_ui_section>
             <sys_updated_by>nicholasmyers</sys_updated_by>
-            <sys_updated_on>2017-10-11 18:53:53</sys_updated_on>
+            <sys_updated_on>2017-12-01 17:26:26</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -89,13 +89,13 @@
             <element>.split</element>
             <position>6</position>
             <sys_created_by>nicholasmyers</sys_created_by>
-            <sys_created_on>2017-10-11 18:53:53</sys_created_on>
-            <sys_id>346a79346ff50f00ad6cd4a21c3ee400</sys_id>
+            <sys_created_on>2017-12-01 17:26:26</sys_created_on>
+            <sys_id>c97f04190f36030012e4348ce1050e32</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_reservation" sys_domain="global" view="Default view">066c0c270f29b60012e4348ce1050e3e</sys_ui_section>
             <sys_updated_by>nicholasmyers</sys_updated_by>
-            <sys_updated_on>2017-10-11 18:53:53</sys_updated_on>
+            <sys_updated_on>2017-12-01 17:26:26</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
@@ -103,13 +103,13 @@
             <element>feature</element>
             <position>7</position>
             <sys_created_by>nicholasmyers</sys_created_by>
-            <sys_created_on>2017-10-11 18:53:53</sys_created_on>
-            <sys_id>b46a79346ff50f00ad6cd4a21c3ee400</sys_id>
+            <sys_created_on>2017-12-01 17:26:26</sys_created_on>
+            <sys_id>4d7f04190f36030012e4348ce1050e32</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_reservation" sys_domain="global" view="Default view">066c0c270f29b60012e4348ce1050e3e</sys_ui_section>
             <sys_updated_by>nicholasmyers</sys_updated_by>
-            <sys_updated_on>2017-10-11 18:53:53</sys_updated_on>
+            <sys_updated_on>2017-12-01 17:26:26</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -117,13 +117,13 @@
             <element>resource</element>
             <position>8</position>
             <sys_created_by>nicholasmyers</sys_created_by>
-            <sys_created_on>2017-10-11 18:53:53</sys_created_on>
-            <sys_id>386a79346ff50f00ad6cd4a21c3ee400</sys_id>
+            <sys_created_on>2017-12-01 17:26:26</sys_created_on>
+            <sys_id>cd7f04190f36030012e4348ce1050e32</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_reservation" sys_domain="global" view="Default view">066c0c270f29b60012e4348ce1050e3e</sys_ui_section>
             <sys_updated_by>nicholasmyers</sys_updated_by>
-            <sys_updated_on>2017-10-11 18:53:53</sys_updated_on>
+            <sys_updated_on>2017-12-01 17:26:26</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -131,55 +131,69 @@
             <element>end</element>
             <position>9</position>
             <sys_created_by>nicholasmyers</sys_created_by>
-            <sys_created_on>2017-10-11 18:53:53</sys_created_on>
-            <sys_id>b86a79346ff50f00ad6cd4a21c3ee400</sys_id>
+            <sys_created_on>2017-12-01 17:26:26</sys_created_on>
+            <sys_id>417f04190f36030012e4348ce1050e33</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_reservation" sys_domain="global" view="Default view">066c0c270f29b60012e4348ce1050e3e</sys_ui_section>
             <sys_updated_by>nicholasmyers</sys_updated_by>
-            <sys_updated_on>2017-10-11 18:53:53</sys_updated_on>
+            <sys_updated_on>2017-12-01 17:26:26</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>creation_method</element>
+            <position>10</position>
+            <sys_created_by>nicholasmyers</sys_created_by>
+            <sys_created_on>2017-12-01 17:26:26</sys_created_on>
+            <sys_id>c17f04190f36030012e4348ce1050e33</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_reservation" sys_domain="global" view="Default view">066c0c270f29b60012e4348ce1050e3e</sys_ui_section>
+            <sys_updated_by>nicholasmyers</sys_updated_by>
+            <sys_updated_on>2017-12-01 17:26:26</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>case</element>
-            <position>10</position>
+            <position>11</position>
             <sys_created_by>nicholasmyers</sys_created_by>
-            <sys_created_on>2017-10-11 18:53:53</sys_created_on>
-            <sys_id>3c6a79346ff50f00ad6cd4a21c3ee400</sys_id>
+            <sys_created_on>2017-12-01 17:26:26</sys_created_on>
+            <sys_id>457f04190f36030012e4348ce1050e33</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_reservation" sys_domain="global" view="Default view">066c0c270f29b60012e4348ce1050e3e</sys_ui_section>
             <sys_updated_by>nicholasmyers</sys_updated_by>
-            <sys_updated_on>2017-10-11 18:53:53</sys_updated_on>
+            <sys_updated_on>2017-12-01 17:26:26</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.end_split</element>
-            <position>11</position>
+            <position>12</position>
             <sys_created_by>nicholasmyers</sys_created_by>
-            <sys_created_on>2017-10-11 18:53:53</sys_created_on>
-            <sys_id>bc6a79346ff50f00ad6cd4a21c3ee400</sys_id>
+            <sys_created_on>2017-12-01 17:26:26</sys_created_on>
+            <sys_id>c57f04190f36030012e4348ce1050e33</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_reservation" sys_domain="global" view="Default view">066c0c270f29b60012e4348ce1050e3e</sys_ui_section>
             <sys_updated_by>nicholasmyers</sys_updated_by>
-            <sys_updated_on>2017-10-11 18:53:53</sys_updated_on>
+            <sys_updated_on>2017-12-01 17:26:26</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>notes</element>
-            <position>12</position>
+            <position>13</position>
             <sys_created_by>nicholasmyers</sys_created_by>
-            <sys_created_on>2017-10-11 18:53:53</sys_created_on>
-            <sys_id>306a79346ff50f00ad6cd4a21c3ee401</sys_id>
+            <sys_created_on>2017-12-01 17:26:26</sys_created_on>
+            <sys_id>497f04190f36030012e4348ce1050e33</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_casus_reservatio_reservation" sys_domain="global" view="Default view">066c0c270f29b60012e4348ce1050e3e</sys_ui_section>
             <sys_updated_by>nicholasmyers</sys_updated_by>
-            <sys_updated_on>2017-10-11 18:53:53</sys_updated_on>
+            <sys_updated_on>2017-12-01 17:26:26</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -194,7 +208,7 @@
             <sys_customer_update>false</sys_customer_update>
             <sys_domain>global</sys_domain>
             <sys_id>066c0c270f29b60012e4348ce1050e3e</sys_id>
-            <sys_mod_count>9</sys_mod_count>
+            <sys_mod_count>11</sys_mod_count>
             <sys_name>x_casus_reservatio_reservation</sys_name>
             <sys_overrides display_value="">global</sys_overrides>
             <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
@@ -203,7 +217,7 @@
             <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
             <sys_update_name>sys_ui_section_066c0c270f29b60012e4348ce1050e3e</sys_update_name>
             <sys_updated_by>nicholasmyers</sys_updated_by>
-            <sys_updated_on>2017-10-11 18:53:53</sys_updated_on>
+            <sys_updated_on>2017-12-01 17:26:26</sys_updated_on>
             <sys_user/>
             <title>true</title>
             <view display_value="Default view" name="NULL">Default view</view>
