@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <disabled>ignore</disabled>
+        <field>weekday_lead_time</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>nicholasmyers</sys_created_by>
+        <sys_created_on>2017-12-13 20:05:10</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>d9d6a2450f8f470012e4348ce1050e82</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>weekday_lead_time</sys_name>
+        <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
+        <sys_update_name>sys_ui_policy_action_d9d6a2450f8f470012e4348ce1050e82</sys_update_name>
+        <sys_updated_by>nicholasmyers</sys_updated_by>
+        <sys_updated_on>2017-12-13 20:05:10</sys_updated_on>
+        <table>x_casus_reservatio_feature</table>
+        <ui_policy display_value="Show Weekday Lead Time">c896ee050f8f470012e4348ce1050ea6</ui_policy>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+</record_update>

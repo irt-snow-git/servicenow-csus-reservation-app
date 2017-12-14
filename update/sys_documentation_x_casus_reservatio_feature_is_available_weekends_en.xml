@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="is_available_weekends" label="Available on weekends" language="en" table="x_casus_reservatio_feature">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>is_available_weekends</element>
+            <help/>
+            <hint/>
+            <label>Available on weekends</label>
+            <language>en</language>
+            <name>x_casus_reservatio_feature</name>
+            <plural>Available on weekends</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>nicholasmyers</sys_created_by>
+            <sys_created_on>2017-12-13 19:54:17</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>3b54aec10f8f470012e4348ce1050e87</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Available on weekends</sys_name>
+            <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
+            <sys_update_name>sys_documentation_x_casus_reservatio_feature_is_available_weekends_en</sys_update_name>
+            <sys_updated_by>nicholasmyers</sys_updated_by>
+            <sys_updated_on>2017-12-13 19:54:17</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

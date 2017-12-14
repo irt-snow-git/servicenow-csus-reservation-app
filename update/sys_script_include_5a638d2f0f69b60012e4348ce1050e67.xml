@@ -205,12 +205,43 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 					span_count++;
 					if( span_count >= span_needed ) {
 						// we reached a full block. record it and start again.
-						list.push( { 
-							start : my_start ,
-							date : my_date ,
-							time : my_time
-						} );
-						span_count = 0;
+						
+						//check the day against the available dates of the feature
+						var date = new GlideDateTime(gr_collectTimes.start);
+						var time = date.getLocalTime();
+						var nowToCmp = new GlideDateTime();
+
+						//if it's a weekend, and the feature is available weekends
+						if((date.getDayOfWeekLocalTime() == 6 || date.getDayOfWeekLocalTime() == 7) && gr_feature.is_available_weekends) {
+							
+							//filter time to ensure the available times are before the feature's lower time limit
+							if(nowToCmp.getNumericValue() <= (date.getNumericValue() - (Math.abs(gr_feature.weekend_lead_time) * 60 * 60 * 1000))) { //feature lead time is in hours >= 0. h * 60 * 60 * 1000 = milliseconds
+
+								list.push( { 
+									start : my_start ,
+									date : my_date ,
+									time : my_time
+								} );
+								span_count = 0;
+							}
+							
+						//date is a weekday and feature is available weekdays
+						} else if((date.getDayOfWeekLocalTime() == 1 || date.getDayOfWeekLocalTime() == 2
+								|| date.getDayOfWeekLocalTime() == 3 || date.getDayOfWeekLocalTime() == 4
+								|| date.getDayOfWeekLocalTime() == 5) && gr_feature.is_available_weekdays){
+							
+							//filter time to ensure the available times are before the feature's lower time limit
+							if(nowToCmp.getNumericValue() <= (date.getNumericValue() - (Math.abs(gr_feature.weekday_lead_time) * 60 * 60 * 1000))) { //feature lead time is in hours >= 0. h * 60 * 60 * 1000 = milliseconds
+								
+								list.push( { 
+									start : my_start ,
+									date : my_date ,
+									time : my_time
+								} );
+								span_count = 0;
+							}
+						
+						}
 					}
 				} else {
 					// this block is already reserved, reset our counter
@@ -227,7 +258,7 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 		var param_myFeature = this.getParameter('feature');
 		var feature_sys_id = "NOTFOUND";
 		var param_filter_resource = this.getParameter('filter_resource');
-		
+
 		// grab the features sys_id
 		var gr_feature = new GlideRecord("x_casus_reservatio_feature");
 		gr_feature.addQuery('number',param_myFeature);
@@ -235,7 +266,7 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 		if( gr_feature.next()){
 			feature_sys_id = gr_feature.sys_id;
 		}
-		
+
 		// grab all resources with this feature
 		var gr_collectResources = new GlideRecord("x_casus_reservatio_resource");
 		gr_collectResources.addQuery("features","CONTAINS",feature_sys_id); // glidelist is a list of sys_ids
@@ -260,14 +291,34 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 		gr_collectDates.orderBy('start');
 
 		gr_collectDates.query();
-		
+
 		var list = [];
 		while( gr_collectDates.next() ) {
-			list.push( { 
-				start : gr_collectDates.start+'' ,
-				date : gr_collectDates.date+'' ,
-				time : gr_collectDates.time+'' 
-			} );
+
+			//check the day against the available dates of the feature
+			var date = new GlideDateTime(gr_collectDates.start);
+
+			//if it's a weekend, check the feature for weekend availability
+			if(date.getDayOfWeekLocalTime() == 6 || date.getDayOfWeekLocalTime() == 7) {
+
+				if(gr_feature.is_available_weekends) {
+					list.push( { 
+						start : gr_collectDates.start+'' ,
+						date : gr_collectDates.date+'' ,
+						time : gr_collectDates.time+'' 
+					} );
+				}
+
+			} else { //check for feature availability on weekdays
+				
+				if(gr_feature.is_available_weekdays) {
+					list.push( { 
+						start : gr_collectDates.start+'' ,
+						date : gr_collectDates.date+'' ,
+						time : gr_collectDates.time+'' 
+					} );
+				}
+			}
 		}
 		return new global.JSON().encodeArray(list);;
 	},
@@ -390,7 +441,7 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
         <sys_created_on>2017-03-22 21:43:12</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>5a638d2f0f69b60012e4348ce1050e67</sys_id>
-        <sys_mod_count>193</sys_mod_count>
+        <sys_mod_count>225</sys_mod_count>
         <sys_name>ReservationUtils</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy>read</sys_policy>
@@ -398,6 +449,6 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_script_include_5a638d2f0f69b60012e4348ce1050e67</sys_update_name>
         <sys_updated_by>nicholasmyers</sys_updated_by>
-        <sys_updated_on>2017-12-07 22:17:38</sys_updated_on>
+        <sys_updated_on>2017-12-14 17:36:52</sys_updated_on>
     </sys_script_include>
 </record_update>

@@ -24,6 +24,8 @@
                 <element label="5 Days" value="5"/>
             </choice>
         </element>
+        <element default="true" label="Available on weekdays" max_length="40" name="is_available_weekdays" type="boolean"/>
+        <element label="Available on weekends" max_length="40" name="is_available_weekends" type="boolean"/>
         <element display="true" label="Name" max_length="40" name="name" type="string"/>
         <element default="javascript:getNextObjNumberPadded();" dynamic_default_value="fdcb83a85f220100a9ad2572f2b4773c" label="Number" max_length="40" name="number" type="string" use_dynamic_default="true"/>
         <element label="Order" max_length="40" name="order" type="integer"/>
@@ -32,5 +34,7 @@
                 <element label="Subject" value="subject"/>
             </choice>
         </element>
+        <element default="0" label="Weekday buffer time (hours)" max_length="40" name="weekday_lead_time" type="integer"/>
+        <element default="0" label="Weekend buffer time (hours)" max_length="40" name="weekend_lead_time" type="integer"/>
     </element>
 </database>

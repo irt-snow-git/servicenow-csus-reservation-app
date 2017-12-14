@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_section caption="Availability" section_id="ad95a6c10f8f470012e4348ce1050e11" sys_domain="global" table="x_casus_reservatio_feature" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>0</position>
+            <sys_created_by>nicholasmyers</sys_created_by>
+            <sys_created_on>2017-12-13 20:08:26</sys_created_on>
+            <sys_id>4797a2450f8f470012e4348ce1050e86</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Availability" display_value="Availability" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">ad95a6c10f8f470012e4348ce1050e11</sys_ui_section>
+            <sys_updated_by>nicholasmyers</sys_updated_by>
+            <sys_updated_on>2017-12-13 20:08:26</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>is_available_weekdays</element>
+            <position>1</position>
+            <sys_created_by>nicholasmyers</sys_created_by>
+            <sys_created_on>2017-12-13 20:08:26</sys_created_on>
+            <sys_id>c797a2450f8f470012e4348ce1050e86</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Availability" display_value="Availability" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">ad95a6c10f8f470012e4348ce1050e11</sys_ui_section>
+            <sys_updated_by>nicholasmyers</sys_updated_by>
+            <sys_updated_on>2017-12-13 20:08:26</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>weekday_lead_time</element>
+            <position>2</position>
+            <sys_created_by>nicholasmyers</sys_created_by>
+            <sys_created_on>2017-12-13 20:08:26</sys_created_on>
+            <sys_id>4b97a2450f8f470012e4348ce1050e86</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Availability" display_value="Availability" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">ad95a6c10f8f470012e4348ce1050e11</sys_ui_section>
+            <sys_updated_by>nicholasmyers</sys_updated_by>
+            <sys_updated_on>2017-12-13 20:08:26</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>3</position>
+            <sys_created_by>nicholasmyers</sys_created_by>
+            <sys_created_on>2017-12-13 20:08:26</sys_created_on>
+            <sys_id>cb97a2450f8f470012e4348ce1050e86</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Availability" display_value="Availability" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">ad95a6c10f8f470012e4348ce1050e11</sys_ui_section>
+            <sys_updated_by>nicholasmyers</sys_updated_by>
+            <sys_updated_on>2017-12-13 20:08:26</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>is_available_weekends</element>
+            <position>4</position>
+            <sys_created_by>nicholasmyers</sys_created_by>
+            <sys_created_on>2017-12-13 20:08:26</sys_created_on>
+            <sys_id>4f97a2450f8f470012e4348ce1050e86</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Availability" display_value="Availability" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">ad95a6c10f8f470012e4348ce1050e11</sys_ui_section>
+            <sys_updated_by>nicholasmyers</sys_updated_by>
+            <sys_updated_on>2017-12-13 20:08:26</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>weekend_lead_time</element>
+            <position>5</position>
+            <sys_created_by>nicholasmyers</sys_created_by>
+            <sys_created_on>2017-12-13 20:08:26</sys_created_on>
+            <sys_id>cf97a2450f8f470012e4348ce1050e86</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Availability" display_value="Availability" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">ad95a6c10f8f470012e4348ce1050e11</sys_ui_section>
+            <sys_updated_by>nicholasmyers</sys_updated_by>
+            <sys_updated_on>2017-12-13 20:08:26</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>6</position>
+            <sys_created_by>nicholasmyers</sys_created_by>
+            <sys_created_on>2017-12-13 20:08:26</sys_created_on>
+            <sys_id>4397a2450f8f470012e4348ce1050e87</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Availability" display_value="Availability" name="x_casus_reservatio_feature" sys_domain="global" view="Default view">ad95a6c10f8f470012e4348ce1050e11</sys_ui_section>
+            <sys_updated_by>nicholasmyers</sys_updated_by>
+            <sys_updated_on>2017-12-13 20:08:26</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Availability</caption>
+            <header>false</header>
+            <name>x_casus_reservatio_feature</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>nicholasmyers</sys_created_by>
+            <sys_created_on>2017-12-13 19:59:35</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_id>ad95a6c10f8f470012e4348ce1050e11</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Availability</sys_name>
+            <sys_overrides display_value="">global</sys_overrides>
+            <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
+            <sys_update_name>sys_ui_section_ad95a6c10f8f470012e4348ce1050e11</sys_update_name>
+            <sys_updated_by>nicholasmyers</sys_updated_by>
+            <sys_updated_on>2017-12-13 19:59:35</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>
