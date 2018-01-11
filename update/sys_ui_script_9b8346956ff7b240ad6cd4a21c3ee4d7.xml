@@ -129,15 +129,15 @@ myApp.controller('MainSchedulerCtrl', function($scope , $interval) {
         <sys_created_on>2017-07-05 22:45:19</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>9b8346956ff7b240ad6cd4a21c3ee4d7</sys_id>
-        <sys_mod_count>56</sys_mod_count>
+        <sys_mod_count>61</sys_mod_count>
         <sys_name>x_casus_reservatio.app_angular_calendar</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_ui_script_9b8346956ff7b240ad6cd4a21c3ee4d7</sys_update_name>
-        <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-07-10 21:43:28</sys_updated_on>
+        <sys_updated_by>nicholasmyers</sys_updated_by>
+        <sys_updated_on>2018-01-11 00:09:58</sys_updated_on>
         <use_scoped_format>false</use_scoped_format>
     </sys_ui_script>
 </record_update>

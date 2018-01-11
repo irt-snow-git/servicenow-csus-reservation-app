@@ -12,6 +12,9 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 	getAllReservations: function() {
 		// used by calendar initalization
 		var gr_reservations = new GlideRecord("x_casus_reservatio_reservation");
+		// the below two lines added 1/10 to ensure edge case reservations (those which somehow managed to enter the database without start or end dates) will display other reservations properly, and won't break the calendar view
+		gr_reservations.addNotNullQuery('start');
+		gr_reservations.addNotNullQuery('end');
 		gr_reservations.query();
 		var list = [];
 		
@@ -441,7 +444,7 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
         <sys_created_on>2017-03-22 21:43:12</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>5a638d2f0f69b60012e4348ce1050e67</sys_id>
-        <sys_mod_count>225</sys_mod_count>
+        <sys_mod_count>228</sys_mod_count>
         <sys_name>ReservationUtils</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy>read</sys_policy>
@@ -449,6 +452,6 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_script_include_5a638d2f0f69b60012e4348ce1050e67</sys_update_name>
         <sys_updated_by>nicholasmyers</sys_updated_by>
-        <sys_updated_on>2017-12-14 17:36:52</sys_updated_on>
+        <sys_updated_on>2018-01-11 00:10:01</sys_updated_on>
     </sys_script_include>
 </record_update>
