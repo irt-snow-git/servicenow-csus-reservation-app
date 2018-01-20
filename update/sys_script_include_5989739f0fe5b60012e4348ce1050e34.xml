@@ -13,7 +13,7 @@ ReservationAvailabilitySetup.prototype = {
     },
 	markReservation: function( reservation ) {
 		// mark the availability for the reservation being made
-//		gs.addInfoMessage('Marking reservation step 1');
+		// gs.addInfoMessage('Marking reservation step 1');
 		var gr_avail = new GlideRecord("x_casus_reservatio_availability");
 		gr_avail.addQuery("resource" , reservation.resource );
 		gr_avail.addQuery("start" , ">=" , reservation.start );
@@ -31,7 +31,7 @@ ReservationAvailabilitySetup.prototype = {
 
 	},
 	removeReservation: function ( reservation ) {
-//		gs.addInfoMessage("remove reservation");
+		// gs.addInfoMessage("remove reservation");
 		// grab resources schedule
 		var i_timeschedule = new GlideSchedule( reservation.resource.schedule.sys_id ); // grab the resources schedule
 		
@@ -56,21 +56,21 @@ ReservationAvailabilitySetup.prototype = {
 
 	},
 	changeReservation: function ( reservation ) {
-//		gs.addInfoMessage("change reservation");
+		gs.addInfoMessage("change reservation");
 		this.removeReservation(reservation);
 		this.markReservation(reservation);
 	
 	},
 	resetAvailability: function( resource ) {
 	// schedule for the resource has changed. reset all of the availability
-//		gs.addInfoMessage("Reset Availability Run " + resource.number );
-		gs.debug("step 1 - Remove any existing availability for this resource"); 
+		// gs.addInfoMessage("Reset Availability Run " + resource.number );
+		// gs.debug("step 1 - Remove any existing availability for this resource"); 
 		var gr_avail = new GlideRecord("x_casus_reservatio_availability");
 		gr_avail.addQuery("resource" , resource.sys_id );
 		gr_avail.addNullQuery("reservation");
 		gr_avail.deleteMultiple();
 		
-		gs.debug("step 1.5 - Collect reservations and create a NOT AVAIL schedule"); 
+		// gs.addInfoMessage("step 1.5 - Collect reservations and create a NOT AVAIL schedule"); 
 		var schedule_busy = new GlideSchedule();
 		if( schedule_busy == null ) { gs.addErrorMessage("cant create schedule")}
 		var dur = new GlideDuration();
@@ -98,8 +98,9 @@ ReservationAvailabilitySetup.prototype = {
 		var i_timeschedule = new GlideSchedule( resource.schedule.sys_id ); // grab the resources schedule
 		var gr_availability = new GlideRecord("x_casus_reservatio_availability");
 		
-		// step 2.5 - Loop through durations and add availability
-		while( i_timeblock_start.compareTo( i_timeblock_stop ) < 1 ) {
+		// step 2.5 - Loop through durations and add availability, or break out if resource has no schedule
+		// gs.addInfoMessage( "resource schedule sysID is " + resource.schedule.sys_id )
+		while( i_timeblock_start.compareTo( i_timeblock_stop ) < 1 && resource.schedule.sys_id != "" ) {
 			
 			if( i_timeschedule.isInSchedule( i_timeblock_start ) && i_timeschedule.isInSchedule(i_timeblock_end ) && !schedule_busy.isInSchedule( i_timeblock_start ) ) {
 				// only create entries that fit schedule that are not already reserved
@@ -117,7 +118,7 @@ ReservationAvailabilitySetup.prototype = {
 				i_timeblock_end.add(skiptime ) ;
 			}
 		}
-				gs.debug("resetAvailability - Step 2.5 complete ");
+				gs.addInfoMessage("resetAvailability - Step 2.5 complete ");
 	},
     type: 'ReservationAvailabilitySetup'
 };]]></script>
@@ -126,7 +127,7 @@ ReservationAvailabilitySetup.prototype = {
         <sys_created_on>2017-03-22 16:36:38</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>5989739f0fe5b60012e4348ce1050e34</sys_id>
-        <sys_mod_count>65</sys_mod_count>
+        <sys_mod_count>73</sys_mod_count>
         <sys_name>ReservationAvailabilitySetup</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy>read</sys_policy>
@@ -134,6 +135,6 @@ ReservationAvailabilitySetup.prototype = {
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_script_include_5989739f0fe5b60012e4348ce1050e34</sys_update_name>
         <sys_updated_by>millsm</sys_updated_by>
-        <sys_updated_on>2017-07-20 08:55:27</sys_updated_on>
+        <sys_updated_on>2018-01-19 23:31:51</sys_updated_on>
     </sys_script_include>
 </record_update>
