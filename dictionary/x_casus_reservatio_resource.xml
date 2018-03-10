@@ -12,7 +12,7 @@
                 <element label="5 Days" value="5"/>
             </choice>
         </element>
-        <element default="javascript:getNextObjNumberPadded();" dynamic_default_value="fdcb83a85f220100a9ad2572f2b4773c" label="Number" max_length="40" name="number" type="string" use_dynamic_default="true"/>
+        <element default="javascript:getNextObjNumberPadded();" dynamic_default_value="fdcb83a85f220100a9ad2572f2b4773c" label="Number" max_length="40" name="number" read_only="true" type="string" use_dynamic_default="true"/>
         <element label="Schedule" max_length="32" name="schedule" reference="cmn_schedule" type="reference"/>
         <element display="true" label="User" max_length="32" name="user" reference="sys_user" type="reference"/>
         <index name="index">

@@ -190,7 +190,21 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 			// gr_collectTimes.addQuery('reservation','=','');
 			gr_collectTimes.addQuery('resource', gr_collectResources.sys_id ) ;
 			gr_collectTimes.addQuery('date','=',param_myDate);
+			
+			//ensure all base reservation times begin at least at the top or bottom of an hour; e.g. do not show 15-min availability records
 			var now = new GlideDateTime();
+			//grab the minutes to check if the time is in a first or third quarter-hour, e.g is 00:00-00:12, or 00:30-00:45
+			/*var nowTime = now.toString().split(" ");
+			var nowMins = nowTime[1].toString().split(":");
+			
+			//round the user up to just-past the quarter hours, to display the top and bottom of each hour following
+			//this way we're not explicitly blocking availabilities which are 15 or 45 minute increments
+			if(nowMins[1] < 15) {
+				now.addSeconds((15 - nowMins[1]) * 60); //adding seconds to round up to the first quarter hour mark
+			} else if(nowMins[1] > 30 && nowMins[1] < 45) {
+				now.addSeconds((45 - nowMins[1]) * 60); //adding seconds to round up to the third quarter hour mark
+			}*/
+			
 			gr_collectTimes.addQuery('start','>',now.toString());
 			gr_collectTimes.orderBy('start');
 			gr_collectTimes.query();
@@ -444,7 +458,7 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
         <sys_created_on>2017-03-22 21:43:12</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>5a638d2f0f69b60012e4348ce1050e67</sys_id>
-        <sys_mod_count>228</sys_mod_count>
+        <sys_mod_count>242</sys_mod_count>
         <sys_name>ReservationUtils</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy>read</sys_policy>
@@ -452,6 +466,6 @@ ReservationUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_script_include_5a638d2f0f69b60012e4348ce1050e67</sys_update_name>
         <sys_updated_by>nicholasmyers</sys_updated_by>
-        <sys_updated_on>2018-01-11 00:10:01</sys_updated_on>
+        <sys_updated_on>2018-02-24 00:49:43</sys_updated_on>
     </sys_script_include>
 </record_update>

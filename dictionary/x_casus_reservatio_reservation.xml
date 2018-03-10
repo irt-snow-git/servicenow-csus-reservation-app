@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
-    <element extends="task" label="Reservation" max_length="40" name="x_casus_reservatio_reservation" sizeclass="187" text_index="true" type="collection">
+    <element extends="task" label="Reservation" max_length="40" name="x_casus_reservatio_reservation" sizeclass="188" text_index="true" type="collection">
         <element label="Case" max_length="32" name="case" reference="x_casus_csm_case" reference_floats="true" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Confirmation" max_length="40" name="confirmation" type="string"/>
         <element choice="3" default="self_service" label="Created via" max_length="40" name="creation_method" type="string">
