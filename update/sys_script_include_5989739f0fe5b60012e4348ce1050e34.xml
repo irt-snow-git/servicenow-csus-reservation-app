@@ -64,13 +64,16 @@ ReservationAvailabilitySetup.prototype = {
 	resetAvailability: function( resource ) {
 	// schedule for the resource has changed. reset all of the availability
 		// gs.addInfoMessage("Reset Availability Run " + resource.number );
-		// gs.debug("step 1 - Remove any existing availability for this resource"); 
+		gs.info("Removing existing availabilities for " + resource.getDisplayValue()); 
 		var gr_avail = new GlideRecord("x_casus_reservatio_availability");
 		gr_avail.addQuery("resource" , resource.sys_id );
 		gr_avail.addNullQuery("reservation");
 		gr_avail.deleteMultiple();
 		
-		// gs.addInfoMessage("step 1.5 - Collect reservations and create a NOT AVAIL schedule"); 
+		gs.info("Availabilities for " + resource.getDisplayValue() + " deleted");
+		
+		gs.info("Collecting reservations and creating an 'unavail' schedule for " + resource.getDisplayValue()); 
+		
 		var schedule_busy = new GlideSchedule();
 		if( schedule_busy == null ) { gs.addErrorMessage("cant create schedule")}
 		var dur = new GlideDuration();
@@ -99,7 +102,7 @@ ReservationAvailabilitySetup.prototype = {
 		var gr_availability = new GlideRecord("x_casus_reservatio_availability");
 		
 		// step 2.5 - Loop through durations and add availability, or break out if resource has no schedule
-		// gs.addInfoMessage( "resource schedule sysID is " + resource.schedule.sys_id )
+		gs.info( "resource " + resource.getDisplayValue() + " schedule sysID is " + resource.schedule.sys_id );
 		while( i_timeblock_start.compareTo( i_timeblock_stop ) < 1 && resource.schedule.sys_id != "" ) {
 			
 			if( i_timeschedule.isInSchedule( i_timeblock_start ) && i_timeschedule.isInSchedule(i_timeblock_end ) && !schedule_busy.isInSchedule( i_timeblock_start ) ) {
@@ -118,7 +121,7 @@ ReservationAvailabilitySetup.prototype = {
 				i_timeblock_end.add(skiptime ) ;
 			}
 		}
-				//gs.addInfoMessage("resetAvailability - Step 2.5 complete ");
+				gs.info("All availabilities added for " + resource.getDisplayValue());
 	},
     type: 'ReservationAvailabilitySetup'
 };]]></script>
@@ -127,7 +130,7 @@ ReservationAvailabilitySetup.prototype = {
         <sys_created_on>2017-03-22 16:36:38</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>5989739f0fe5b60012e4348ce1050e34</sys_id>
-        <sys_mod_count>76</sys_mod_count>
+        <sys_mod_count>77</sys_mod_count>
         <sys_name>ReservationAvailabilitySetup</sys_name>
         <sys_package display_value="Reservation" source="x_casus_reservatio">95266efe0fa9760012e4348ce1050e8b</sys_package>
         <sys_policy>read</sys_policy>
@@ -135,6 +138,6 @@ ReservationAvailabilitySetup.prototype = {
         <sys_scope display_value="Reservation">95266efe0fa9760012e4348ce1050e8b</sys_scope>
         <sys_update_name>sys_script_include_5989739f0fe5b60012e4348ce1050e34</sys_update_name>
         <sys_updated_by>nicholasmyers</sys_updated_by>
-        <sys_updated_on>2018-02-13 19:23:28</sys_updated_on>
+        <sys_updated_on>2018-04-02 17:26:03</sys_updated_on>
     </sys_script_include>
 </record_update>
